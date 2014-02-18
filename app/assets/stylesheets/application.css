@@ -1,3 +1,28 @@
+head,body,html 
+{
+  	height:100%;
+  	margin: -13px 0px 0px 0px;
+}
+#bg 
+{
+  z-index: -999;
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 180%;
+}
+#bg img 
+{
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+} 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
