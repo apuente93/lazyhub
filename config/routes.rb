@@ -1,5 +1,6 @@
 Lazyhub::Application.routes.draw do
-  root  'static_pages#home'
+  root  'static_pages#under_construction'
+  match '/home',   to: 'static_pages#home',   via: 'get'
   match '/game',   to: 'static_pages#game',   via: 'get'
   match '/laugh', to: 'static_pages#laugh', via: 'get'
   match '/community', to: 'static_pages#community', via: 'get'

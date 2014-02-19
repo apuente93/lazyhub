@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+  def under_construction
+  end
+  
   def home
   end
 
