@@ -1,6 +1,5 @@
 Lazyhub::Application.routes.draw do
-  root  'static_pages#under_construction'
-  get "static_pages/home"
+  root  'static_pages#home'
   get "static_pages/game"
   get "static_pages/laugh"
   get "static_pages/community"
