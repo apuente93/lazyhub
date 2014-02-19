@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lazyhub</title>
+ 	<title>Lazy Hub</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+	<footer> <%= render 'layouts/footer' %> </footer>
 </head>
 <body>
 
 <%= yield %>
-<footer>
-      <%= render 'layouts/footer' %>
-</footer>
 </body>
 </html>
