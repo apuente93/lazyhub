@@ -1,9 +1,9 @@
 Lazyhub::Application.routes.draw do
   root  'static_pages#home'
-  get "static_pages/game"
-  get "static_pages/laugh"
-  get "static_pages/community"
-  get "static_pages/about"
+  match '/game',    to: 'static_pages#game',    via: 'get'
+  match '/laugh',    to: 'static_pages#laugh',    via: 'get'
+  match '/community',    to: 'static_pages#community',    via: 'get'
+  match '/about',    to: 'static_pages#about',    via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
