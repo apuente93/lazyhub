@@ -2,11 +2,11 @@ module ApplicationHelper
 
   # Returns the full title on a per-page basis.
   def full_title(page_title)
-    base_title = "Lazy Hub - the entertainment system for the web"
+    base_title = "Lazy Hub -"
     if page_title.empty?
       base_title
     else
-      "#{base_title} | #{page_title}"
+      "#{base_title} #{page_title}"
     end
   end
 end
