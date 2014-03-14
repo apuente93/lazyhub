@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= article.content %></td>
+        <td><%= article.upvote %></td>
+        <td><%= article.downvote %></td>
+        <td><%= link_to 'Show', article %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Article', new_article_path, class: "btn btn-large btn-primary" %>
