@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
   def laugh
   end
 
-  def community
+  def news
   end
 
   def about

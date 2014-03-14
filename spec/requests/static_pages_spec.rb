@@ -26,11 +26,11 @@ describe "Static pages" do
     it { should have_title(full_title('Game')) }
   end
 
-  describe "Community" do
-    before { visit community_path }
+  describe "News" do
+    before { visit news_path }
 
-    it { should have_content('Community') }
-    it { should have_title(full_title('Community')) }
+    it { should have_content('News') }
+    it { should have_title(full_title('News')) }
   end
 
   describe "About page" do

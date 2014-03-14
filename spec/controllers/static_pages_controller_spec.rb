@@ -23,9 +23,9 @@ describe StaticPagesController do
     end
   end
 
-  describe "GET 'community'" do
+  describe "GET 'news'" do
     it "returns http success" do
-      get 'community'
+      get 'news'
       response.should be_success
     end
   end
