@@ -1,5 +1,10 @@
 Lazyhub::Application.routes.draw do
-  resources :articles
+  resources :articles do
+    member do 
+       post :upvote
+    end
+  end
+
 
   resources :users
   root  'static_pages#home'

@@ -14,7 +14,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.upvote %></td>
+        <td><%= link_to article.upvote, upvote_article_path(article.id), method: :post %></td>
         <td><%= article.downvote %></td>
         <td><%= article.views %></td>
         <td><%= link_to article.content, article %></td>
