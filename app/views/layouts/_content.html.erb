@@ -3,6 +3,7 @@
     <tr>
       <th>Upvote</th>
       <th>Downvote</th>
+      <th>Views</th>
       <th>Content</th>
       <th></th>
       <th></th>
@@ -15,8 +16,8 @@
       <tr>
         <td><%= article.upvote %></td>
         <td><%= article.downvote %></td>
-        <td><%= article.content %></td>
-        <td><%= link_to 'Show', article %></td>
+        <td><%= article.views %></td>
+        <td><%= link_to article.content, article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
         <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
