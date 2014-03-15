@@ -22,6 +22,13 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def downvote
+    @article = Article.find(params[:id])
+    @article.save
+    @article.decrement!(:upvote)
+    redirect_to root_path
+  end
+
   # GET /articles/new
   def new
     @article = Article.new

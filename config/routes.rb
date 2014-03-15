@@ -2,6 +2,7 @@ Lazyhub::Application.routes.draw do
   resources :articles do
     member do 
        post :upvote
+       post :downvote
     end
   end
 
