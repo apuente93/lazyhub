@@ -1,25 +1,24 @@
 <table>
   <thead>
     <tr>
+      <th>Points</th>
       <th>Upvote</th>
       <th>Downvote</th>
       <th>Views</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Best of the Best</th>
     </tr>
   </thead>
 
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= link_to article.upvote, upvote_article_path(article.id), method: :post %></td>
+        <td><%= link_to article.upvote %></td>
+        <td><%= link_to '+', points_article_path(article.id), method: :post %></td>
         <td><%= link_to '-', downvote_article_path(article.id), method: :post %></td>
         <td><%= article.views %></td>
         <td><%= link_to article.content, article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--<td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>

@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     redirect_to @article.content
   end
 
-  def upvote
+  def points
     @article = Article.find(params[:id])
     @article.save
     @article.increment!(:upvote)

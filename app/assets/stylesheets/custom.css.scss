@@ -205,3 +205,25 @@ input
   @extend .control-group;
   @extend .error;
 }
+
+/* Content helper */
+table
+{
+  position:relative;
+}
+th
+{
+  padding: 12px;
+  height: 30px;
+}
+thead
+{
+  height: 10px;
+  background-color: #3b3b3b;
+  tr th
+  {
+    border: 6px solid $grayLighter;
+    font-size: 0.8em;
+    color: #ffffff
+  }
+}
