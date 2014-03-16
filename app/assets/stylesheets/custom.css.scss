@@ -211,14 +211,16 @@ input
 /* Content helper */
 table
 {
-  position:relative;
+  border: 1px solid black;
 }
 td
 {
+  border: 1px solid black;
   padding: 5px;
 }
 thead
 {
+  line-height: 15px;
   background-color: #3b3b3b;
   tr th
   {
@@ -226,4 +228,13 @@ thead
     font-size: 0.6em;
     color: #ffffff
   }
+}
+#upvote
+{
+  postion:relative;
+  left: 5px;
+}
+#downvote
+{
+  
 }
