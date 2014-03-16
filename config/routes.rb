@@ -1,6 +1,4 @@
 Lazyhub::Application.routes.draw do
-  resources :funnies
-
   resources :articles do
     member do 
        post :points

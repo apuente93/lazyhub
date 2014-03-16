@@ -28,8 +28,8 @@
     <%= f.text_area :content %>
   </div>
   <div class= "field">
-    <%= f.label :funny_id %><br/>
-    <%= f.number_field :funny_id %>
+    <%= f.label :article_type %><br/>
+    <%= f.select :article_type, options_for_select(%w[Laugh Game News Random]) %>
   </div>
   <div class="actions">
     <%= f.submit %>

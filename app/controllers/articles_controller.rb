@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
-
+  
   # GET /articles/1
   # GET /articles/1.json
   def show
@@ -45,9 +45,21 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        if (!@article.funny_id.blank?)
-          @funny = Funny.new(params[:id])
-          @funny.save
+        if @article.article_type == 'Laugh'
+          @article.article_type_id = 1
+          @article.save
+        end
+        if @article.article_type == 'Game'
+          @article.article_type_id = 2
+          @article.save
+        end
+        if @article.article_type == 'News'
+          @article.article_type_id = 3
+          @article.save
+        end
+        if @article.article_type == 'Random'
+          @article.article_type_id = 4
+          @article.save
         end
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
         format.json { render action: 'show', status: :created, location: @article }
@@ -90,6 +102,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :funny_id)
+      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :article_type_id)
     end
 end
