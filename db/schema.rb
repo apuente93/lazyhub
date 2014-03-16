@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316045317) do
+ActiveRecord::Schema.define(version: 20140316092253) do
 
   create_table "articles", force: true do |t|
     t.integer  "upvote"
@@ -21,7 +21,17 @@ ActiveRecord::Schema.define(version: 20140316045317) do
     t.datetime "updated_at"
     t.integer  "views"
     t.string   "article_type"
+    t.integer  "funny_id"
   end
+
+  create_table "funnies", force: true do |t|
+    t.string   "content"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "funnies", ["article_id"], name: "index_funnies_on_article_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
