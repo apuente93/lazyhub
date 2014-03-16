@@ -213,19 +213,17 @@ table
 {
   position:relative;
 }
-th
+td
 {
-  padding: 12px;
-  height: 30px;
+  padding: 5px;
 }
 thead
 {
-  height: 10px;
   background-color: #3b3b3b;
   tr th
   {
-    border: 6px solid $grayLighter;
-    font-size: 0.8em;
+    padding: 9px;
+    font-size: 0.6em;
     color: #ffffff
   }
 }
