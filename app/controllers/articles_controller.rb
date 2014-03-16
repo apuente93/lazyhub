@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Article was successfully created.' }
         format.json { render action: 'show', status: :created, location: @article }
       else
         format.html { render action: 'new' }
@@ -59,7 +59,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -73,7 +73,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -86,6 +86,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:upvote, :downvote, :content, :views)
+      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type)
     end
 end

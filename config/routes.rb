@@ -13,6 +13,7 @@ Lazyhub::Application.routes.draw do
   match '/game',    to: 'static_pages#game',    via: 'get'
   match '/laugh',    to: 'static_pages#laugh',    via: 'get'
   match '/news',    to: 'static_pages#news',    via: 'get'
+  match '/random',    to: 'static_pages#random',    via: 'get'
   match '/about',    to: 'static_pages#about',    via: 'get'
   match '/contact',    to: 'static_pages#contact',    via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.

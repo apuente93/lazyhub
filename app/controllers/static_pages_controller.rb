@@ -12,6 +12,9 @@ class StaticPagesController < ApplicationController
   def news
   end
 
+  def random
+  end
+
   def about
   end
 
