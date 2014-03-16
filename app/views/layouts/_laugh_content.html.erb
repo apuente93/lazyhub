@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Points</th>
+      <th></th>
+      <th></th>
+      <th>Views</th>
+      <th>Type</th>
+      <th>Best of the Best</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.upvote %></td>
+        <td id = "upvote"><%= link_to image_tag("upvote_48.png", :alt => "rss feed"), points_article_path(article.id), method: :post %></td>
+        <td id = "downvote"><%= link_to image_tag("downvote_48.png", :alt => "rss feed"), downvote_article_path(article.id), method: :post %></td>
+        <td><%= article.views %></td>
+        <td><%= article.article_type %></td>
+        <td><%= link_to article.content, article %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Article', new_article_path %>

@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
-  
+
   # GET /articles/1
   # GET /articles/1.json
   def show
@@ -17,9 +17,9 @@ class ArticlesController < ApplicationController
 
   def points
     @article = Article.find(params[:id])
-    @article.save
     @article.increment!(:upvote)
-    redirect_to root_path
+    @article.save
+    redirect_to :back
   end
 
   def downvote
