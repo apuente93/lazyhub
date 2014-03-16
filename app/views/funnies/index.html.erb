@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Content</th>
       <th>Article</th>
       <th></th>
       <th></th>
@@ -14,7 +13,6 @@
   <tbody>
     <% @funnies.each do |funny| %>
       <tr>
-        <td><%= funny.content %></td>
         <td><%= funny.article %></td>
         <td><%= link_to 'Show', funny %></td>
         <td><%= link_to 'Edit', edit_funny_path(funny) %></td>

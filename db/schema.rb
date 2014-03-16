@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316092253) do
+ActiveRecord::Schema.define(version: 20140316102806) do
 
   create_table "articles", force: true do |t|
     t.integer  "upvote"
@@ -25,13 +25,23 @@ ActiveRecord::Schema.define(version: 20140316092253) do
   end
 
   create_table "funnies", force: true do |t|
-    t.string   "content"
     t.integer  "article_id"
+    t.string   "article_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "funnies", ["article_id"], name: "index_funnies_on_article_id"
+  add_index "funnies", ["article_id", "article_type"], name: "index_funnies_on_article_id_and_article_type"
+
+  create_table "rails", force: true do |t|
+    t.string   "funny"
+    t.integer  "article_id"
+    t.string   "article_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails", ["article_id", "article_type"], name: "index_rails_on_article_id_and_article_type"
 
   create_table "users", force: true do |t|
     t.string   "name"

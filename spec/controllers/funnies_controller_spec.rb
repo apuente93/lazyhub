@@ -23,7 +23,7 @@ describe FunniesController do
   # This should return the minimal set of attributes required to create a valid
   # Funny. As you add validations to Funny, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "content" => "MyString" } }
+  let(:valid_attributes) { { "article" => "" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe FunniesController do
       it "assigns a newly created but unsaved funny as @funny" do
         # Trigger the behavior that occurs when invalid params are submitted
         Funny.any_instance.stub(:save).and_return(false)
-        post :create, {:funny => { "content" => "invalid value" }}, valid_session
+        post :create, {:funny => { "article" => "invalid value" }}, valid_session
         assigns(:funny).should be_a_new(Funny)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Funny.any_instance.stub(:save).and_return(false)
-        post :create, {:funny => { "content" => "invalid value" }}, valid_session
+        post :create, {:funny => { "article" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe FunniesController do
         # specifies that the Funny created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Funny.any_instance.should_receive(:update).with({ "content" => "MyString" })
-        put :update, {:id => funny.to_param, :funny => { "content" => "MyString" }}, valid_session
+        Funny.any_instance.should_receive(:update).with({ "article" => "" })
+        put :update, {:id => funny.to_param, :funny => { "article" => "" }}, valid_session
       end
 
       it "assigns the requested funny as @funny" do
@@ -128,7 +128,7 @@ describe FunniesController do
         funny = Funny.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Funny.any_instance.stub(:save).and_return(false)
-        put :update, {:id => funny.to_param, :funny => { "content" => "invalid value" }}, valid_session
+        put :update, {:id => funny.to_param, :funny => { "article" => "invalid value" }}, valid_session
         assigns(:funny).should eq(funny)
       end
 
@@ -136,7 +136,7 @@ describe FunniesController do
         funny = Funny.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Funny.any_instance.stub(:save).and_return(false)
-        put :update, {:id => funny.to_param, :funny => { "content" => "invalid value" }}, valid_session
+        put :update, {:id => funny.to_param, :funny => { "article" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

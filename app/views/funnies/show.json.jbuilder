@@ -1,1 +1,1 @@
-json.extract! @funny, :content, :article_id, :created_at, :updated_at
+json.extract! @funny, :article_id, :article_type, :created_at, :updated_at
