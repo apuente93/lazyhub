@@ -12,7 +12,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= link_to article.upvote %></td>
+        <td><%= article.upvote %></td>
         <td><%= link_to '+', points_article_path(article.id), method: :post %></td>
         <td><%= link_to '-', downvote_article_path(article.id), method: :post %></td>
         <td><%= article.views %></td>
