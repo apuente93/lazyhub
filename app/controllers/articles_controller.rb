@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.save
     @article.decrement!(:upvote)
-    redirect_to root_path
+    redirect_to :back
   end
 
   # GET /articles/new
