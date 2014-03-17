@@ -212,11 +212,14 @@ input
 table
 {
   border: 1px solid black;
+  text-decoration: none;
+
 }
 td
 {
   border: 1px solid black;
   padding: 5px;
+  text-decoration: none;
 }
 thead
 {
@@ -233,4 +236,8 @@ thead
 {
   height: 100px;
   width: 500px;
+}
+#content_column
+{
+  background-color: #3b3b3b;
 }
