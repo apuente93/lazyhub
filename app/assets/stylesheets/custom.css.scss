@@ -234,10 +234,17 @@ thead
 }
 #content_column
 {
+  font-size: 1.8em;
   height: 100px;
   width: 500px;
+  cursor: pointer;
 }
-#content_column
+#content_column:hover
 {
-  background-color: #3b3b3b;
+  text-decoration: none;
+  background-color: silver;
+}
+.article_type:hover
+{
+  text-decoration: none;
 }
