@@ -211,20 +211,20 @@ input
 /* Content helper */
 table
 {
-  border: 1px solid black;
+  border: 6px solid black;
   text-decoration: none;
 
 }
 td
 {
-  border: 1px solid black;
+  border: 6px solid black;
   padding: 5px;
   text-decoration: none;
 }
 thead
 {
   line-height: 15px;
-  background-color: #3b3b3b;
+  background-color: black;
   tr th
   {
     padding: 9px;
@@ -232,19 +232,41 @@ thead
     color: #ffffff
   }
 }
-#content_column
+.content_column
 {
   font-size: 1.8em;
   height: 100px;
-  width: 500px;
+  width: 600px;
   cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-#content_column:hover
+.content_column:hover
 {
   text-decoration: none;
-  background-color: silver;
+  background-color: #c1f787;
 }
 .article_type:hover
 {
   text-decoration: none;
+}
+.edit
+{
+  text-decoration: none;
+  background-color: yellow;
+}
+.delete
+{
+  text-decoration: none;
+  background-color: red;
+}
+.points
+{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.views
+{
+  font-size: 1.5em;
+  font-weight: bold;
 }
