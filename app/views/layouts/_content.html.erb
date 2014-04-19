@@ -17,7 +17,7 @@
         <td><%= link_to image_tag("downvote_48.png", :alt => "rss feed"), downvote_article_path(article.id), method: :post %></td>
         <td class = "views"><%= article.views %></td>
         <td class = "content_column",  onclick="location.href='<%= article.content %>'"><%= link_to article.article_type, article, {:style=>'color: black;', :class => "article_type"} %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <!--<td><%= link_to 'Edit', edit_article_path(article) %></td>
         <td ><%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
