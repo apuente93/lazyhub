@@ -3,6 +3,8 @@ Lazyhub::Application.routes.draw do
     member do 
        post :points
        post :downvote
+       post :views
+       get :views
     end
   end
 

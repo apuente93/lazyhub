@@ -1,17 +1,21 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote, :views]
 
-  # GET /articles
-  # GET /articles.json
   def index
     @articles = Article.all
   end
 
-  # GET /articles/1
-  # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
     @article.increment!(:views)
+    @article.save
+    redirect_to @article.content
+  end
+
+  def views
+    @article = Article.find(params[:id])
+    @article.increment!(:views)
+    @article.save
     redirect_to @article.content
   end
 
@@ -24,8 +28,8 @@ class ArticlesController < ApplicationController
 
   def downvote
     @article = Article.find(params[:id])
-    @article.save
     @article.decrement!(:upvote)
+    @article.save
     redirect_to :back
   end
 
@@ -61,6 +65,11 @@ class ArticlesController < ApplicationController
           @article.article_type_id = 4
           @article.save
         end
+        @article.views = 0;
+        @article.upvote = 0;
+        @article.downvote = 0;
+        @article.save;
+
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
         format.json { render action: 'show', status: :created, location: @article }
       else
