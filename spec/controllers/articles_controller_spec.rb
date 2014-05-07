@@ -75,9 +75,9 @@ describe ArticlesController do
         assigns(:article).should be_persisted
       end
 
-      it "redirects to the created article" do
+      it "redirects to the root page" do
         post :create, {:article => valid_attributes}, valid_session
-        response.should redirect_to(Article.last)
+        response.should redirect_to(root_path)
       end
     end
 
@@ -116,10 +116,10 @@ describe ArticlesController do
         assigns(:article).should eq(article)
       end
 
-      it "redirects to the article" do
+      it "redirects to the root path" do
         article = Article.create! valid_attributes
         put :update, {:id => article.to_param, :article => valid_attributes}, valid_session
-        response.should redirect_to(article)
+        response.should redirect_to(root_path)
       end
     end
 
@@ -153,7 +153,7 @@ describe ArticlesController do
     it "redirects to the articles list" do
       article = Article.create! valid_attributes
       delete :destroy, {:id => article.to_param}, valid_session
-      response.should redirect_to(articles_url)
+      response.should redirect_to(root_path)
     end
   end
 

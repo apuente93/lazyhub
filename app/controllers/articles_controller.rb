@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.increment!(:views)
     @article.save
-    redirect_to @article.content
+    @article.content
   end
 
   def views
@@ -40,6 +40,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @article = Article.find(params[:id])
   end
 
   # POST /articles
