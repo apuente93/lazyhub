@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles.sort! { |a, b| a.upvote <=> b.upvote}
+    @article.save
   end
 
   def show

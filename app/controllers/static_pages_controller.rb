@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     @articles = Article.all
+    @articles.sort_by! { |a| [-a.upvote, -a.views]}
   end
 
   def laugh
