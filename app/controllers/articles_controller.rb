@@ -1,10 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote, :views]
+  before_action :signed_in_user, only: [:points, :downvote, :new, :create, :edit, :update, :destroy]
 
   def index
     @articles = Article.all
-    @articles.sort! { |a, b| a.upvote <=> b.upvote}
-    @article.save
   end
 
   def show
@@ -126,6 +124,13 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in."
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
