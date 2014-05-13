@@ -9,7 +9,6 @@ Lazyhub::Application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
-
   resources :users
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
