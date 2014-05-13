@@ -8,28 +8,24 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @article.increment!(:views)
-    @article.save
     @article.content
   end
 
   def views
     @article = Article.find(params[:id])
     @article.increment!(:views)
-    @article.save
     redirect_to @article.content
   end
 
   def points
     @article = Article.find(params[:id])
-    @article.increment!(:upvote)
-    @article.save
+    @article.increment!(:upvote)  
     redirect_to :back
   end
 
   def downvote
     @article = Article.find(params[:id])
     @article.decrement!(:upvote)
-    @article.save
     redirect_to :back
   end
 
@@ -136,5 +132,10 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :article_type_id)
+    end
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation, :upvoted, :downvoted)
     end
 end
