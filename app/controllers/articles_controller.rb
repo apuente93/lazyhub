@@ -110,9 +110,10 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
+    @article = Article.find(params[:id])
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
