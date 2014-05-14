@@ -6,6 +6,12 @@
       <th></th>
       <th>Views</th>
       <th>Best of the Best</th>
+      <% if signed_in? %>
+      <% if current_user.admin? && !current_user?(@user) %>
+      <th></th>
+      <th></th>
+      <% end %>
+      <% end %>
     </tr>
   </thead>
 
@@ -17,8 +23,12 @@
         <td><%= link_to image_tag("downvote_48.png", :alt => "rss feed"), downvote_article_path(article.id), method: :post %></td>
         <td class = "views"><%= article.views %></td>
         <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'"><%= link_to article.article_type, views_article_path(article.id), {:style=>'color: black;', :class => "article_type", method: :post} %></td>
-        <!--<td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td ><%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        <% if signed_in? %>
+        <% if current_user.admin? && !current_user?(@user) %>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

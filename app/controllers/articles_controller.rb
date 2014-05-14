@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :signed_in_user, only: [:points, :downvote, :new, :create, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:points, :downvote, :new, :create, :update, :destroy]
+  before_action :admin_user,     only: [:destroy, :edit]
 
   def index
     @articles = Article.all
@@ -19,7 +20,7 @@ class ArticlesController < ApplicationController
 
   def points
     @article = Article.find(params[:id])
-    @article.increment!(:upvote)  
+    @article.increment!(:upvote)
     redirect_to :back
   end
 
@@ -137,5 +138,9 @@ class ArticlesController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation, :upvoted, :downvoted)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
