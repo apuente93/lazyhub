@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520195324) do
+ActiveRecord::Schema.define(version: 20140528005624) do
 
   create_table "articles", force: true do |t|
     t.integer  "upvote"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20140520195324) do
     t.integer  "views"
     t.string   "article_type"
     t.integer  "article_type_id"
+  end
+
+  create_table "comments", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "microposts", force: true do |t|

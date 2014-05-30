@@ -8,8 +8,11 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @article.increment!(:views)
-    @article.content
+    @comments = @article.comments.paginate(page: params[:page])
+    if signed_in?
+      @comment  = current_user.comments.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
   end
 
   def views
