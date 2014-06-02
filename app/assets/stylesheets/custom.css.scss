@@ -10,6 +10,11 @@ body
   padding-top: 79px;
 }
 
+.container
+{
+  width: 1200px;
+}
+
 section 
 {
   overflow: auto;
@@ -213,12 +218,12 @@ table
 {
   border: 6px solid black;
   text-decoration: none;
-
+  width: 1100px;
 }
 td
 {
   border: 6px solid black;
-  padding: 5px;
+  padding: 2px;
   text-decoration: none;
 }
 thead
@@ -234,12 +239,11 @@ thead
 }
 .content_column
 {
-  font-size: 1.8em;
-  height: 100px;
-  width: 600px;
+  font-size: 1em;
+  height: 20px;
+  width: 650px;
   cursor: pointer;
   font-weight: bold;
-  text-transform: uppercase;
 }
 .content_column:hover
 {

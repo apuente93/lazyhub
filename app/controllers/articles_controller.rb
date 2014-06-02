@@ -83,8 +83,9 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    @article = Article.find(params[:id])
     respond_to do |format|
-      if @article.update(article_params)
+      if @article.update_attributes(article_params)
         if @article.article_type == 'Laugh'
           @article.article_type_id = 1
           @article.save
@@ -136,7 +137,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :article_type_id)
+      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :article_type_id, :title)
     end
 
     def user_params
