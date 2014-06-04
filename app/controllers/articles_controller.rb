@@ -142,7 +142,7 @@ class ArticlesController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :upvoted, :downvoted)
+                                   :password_confirmation)
     end
 
     def admin_user
