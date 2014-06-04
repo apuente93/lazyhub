@@ -5,6 +5,8 @@ Lazyhub::Application.routes.draw do
        post :downvote
        post :views
        get :views
+       put "like", to: "articles#upvote"
+       put "dislike", to: "articles#downvote"
     end
   end
 

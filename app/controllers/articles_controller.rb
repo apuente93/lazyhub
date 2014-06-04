@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :signed_in_user, only: [:points, :downvote, :new, :create, :update, :destroy]
+  before_action :signed_in_user, only: [:points, :new, :create, :update, :destroy]
   before_action :admin_user,     only: [:destroy, :edit]
 
   def index
@@ -21,15 +21,15 @@ class ArticlesController < ApplicationController
     redirect_to @article.content
   end
 
-  def points
+  def upvote
     @article = Article.find(params[:id])
-    @article.increment!(:upvote)
+    @article.liked_by current_user
     redirect_to :back
   end
 
   def downvote
     @article = Article.find(params[:id])
-    @article.decrement!(:upvote)
+    @article.downvote_from current_user
     redirect_to :back
   end
 
