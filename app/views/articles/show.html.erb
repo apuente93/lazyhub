@@ -24,7 +24,7 @@
 <% else %>
 <div class="span8">
     <% if @article.comments.any? %>
-      <h3>Comments (<%= @article.comments.count %>)</h3>
+      <h3><%= link_to @article.title, views_article_path(@article.id), {:style=>'color: black;', :class => "article_type", method: :post} %></h3>
       <ol class="comments">
         <%= render @comments %>
       </ol>
