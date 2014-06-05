@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604062923) do
+ActiveRecord::Schema.define(version: 20140605033322) do
 
   create_table "articles", force: true do |t|
     t.integer  "upvote"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20140604062923) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140604062923) do
     t.integer  "age"
     t.string   "remember_token"
     t.boolean  "admin"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
