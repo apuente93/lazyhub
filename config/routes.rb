@@ -1,8 +1,6 @@
 Lazyhub::Application.routes.draw do
   resources :articles do
     member do 
-       post :points
-       post :downvote
        post :views
        get :views
        put "like", to: "articles#upvote"
