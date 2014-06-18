@@ -18,18 +18,21 @@ class ArticlesController < ApplicationController
   def views
     @article = Article.find(params[:id])
     @article.increment!(:views)
+    @article.save
     redirect_to @article.content
   end
 
   def upvote
     @article = Article.find(params[:id])
     @article.liked_by current_user
+    @article.save
     redirect_to :back
   end
 
   def downvote
     @article = Article.find(params[:id])
     @article.downvote_from current_user
+    @article.save
     redirect_to :back
   end
 
