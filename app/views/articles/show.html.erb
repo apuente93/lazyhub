@@ -23,13 +23,16 @@
     </div>
 </div>
 <% else %>
-<div class="span8">
+<div class="span5 offset5">
     <% if @article.comments.any? %>
       <h3><%= link_to @article.title, views_article_path(@article.id), {:style=>'color: black;', :class => "article_type", method: :post} %></h3>
       <ol class="comments">
         <%= render @comments %>
       </ol>
       <%= will_paginate @comments %>
+    <% else %>
+      <h2 class = "bg-danger">There are currently no comments for this article.</h2>
+      <h2 class = "bg-danger"><%= link_to @article.title, views_article_path(@article.id), {:style=>'color: black;', :class => "article_type", method: :post} %></h2>
     <% end %>
   </div>
 </div>
