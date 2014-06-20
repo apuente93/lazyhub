@@ -24,12 +24,14 @@ class ArticlesController < ApplicationController
   def upvote
     @article = Article.find(params[:id])
     @article.liked_by current_user
+    @article.increment!(:upvote)
     redirect_to :back
   end
 
   def downvote
     @article = Article.find(params[:id])
     @article.downvote_from current_user
+    @article.decrement!(:upvote)
     redirect_to :back
   end
 
