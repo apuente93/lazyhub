@@ -20,9 +20,11 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
+        <% if @articles.upvote != 0 %>
         <td class = "points"><%= (article.get_upvotes.size) %></td>
         <td><%= link_to image_tag("upvote_48.png", :alt => "rss feed"),like_article_path(article.id), method: :put %></td>
         <td><%= link_to image_tag("downvote_48.png", :alt => "rss feed"), dislike_article_path(article.id), method: :put %></td>
+        <% end %>
         <td class = "views"><%= article.views %></td>
         <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'"><%= link_to article.title, views_article_path(article.id), {:style=>'color: black;', :class => "article_type", method: :post} %></td>
         <td><%= link_to 'Comments', article %></td>
