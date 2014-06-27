@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605033322) do
+ActiveRecord::Schema.define(version: 20140627051321) do
 
   create_table "articles", force: true do |t|
     t.integer  "upvote"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140605033322) do
     t.string   "remember_token"
     t.boolean  "admin"
     t.string   "username"
+    t.integer  "upvote"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
