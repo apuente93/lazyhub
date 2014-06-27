@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    @articles = Article.paginate(:page => params[:page], :per_page => 20).order(upvote: :desc, views: :desc)
+    @articles = Article.all
+    @articles.sort_by! { |a| [-a.get_upvotes.size, -a.views]}
   end
 
   def laugh
