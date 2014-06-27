@@ -72,7 +72,7 @@ class ArticlesController < ApplicationController
           @article.article_type_id = 4
           @article.save
         end
-        @article.views = 0;
+        @article.views = 0
         @article.save;
 
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
