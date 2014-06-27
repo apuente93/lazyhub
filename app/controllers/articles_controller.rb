@@ -23,18 +23,12 @@ class ArticlesController < ApplicationController
 
   def upvote
     @article = Article.find(params[:id])
-    if (!current_user.voted_up_on? @article)
-    @article.increment!(:upvote)
-    end
     @article.liked_by current_user
     redirect_to :back
   end
 
   def downvote
     @article = Article.find(params[:id])
-    if (!current_user.voted_down_on? @article)
-    @article.decrement!(:upvote)
-    end
     @article.downvote_from current_user
     redirect_to :back
   end
