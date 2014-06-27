@@ -73,8 +73,7 @@ class ArticlesController < ApplicationController
           @article.save
         end
         @article.views = 0
-        @article.upvote = 0
-        @article.downvote = 0
+
         @article.save;
 
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
