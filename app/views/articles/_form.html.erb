@@ -20,7 +20,21 @@
   </div>
   <div class= "field">
     <%= f.label :article_type %><br/>
+    <% if URI(request.referer).path == '/game' %>
+    <%= f.select :article_type, options_for_select(%w[Game]) %>
+    <% end %>
+    <% if URI(request.referer).path == '/laugh' %>
+    <%= f.select :article_type, options_for_select(%w[Laugh]) %>
+    <% end %>
+    <% if URI(request.referer).path == '/news' %>
+    <%= f.select :article_type, options_for_select(%w[News]) %>
+    <% end %>
+    <% if URI(request.referer).path == '/random' %>
+    <%= f.select :article_type, options_for_select(%w[Random]) %>
+    <% end %>
+    <% if URI(request.referer).path == '/' %>
     <%= f.select :article_type, options_for_select(%w[Laugh Game News Random]) %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>
