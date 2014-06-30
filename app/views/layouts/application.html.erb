@@ -11,22 +11,21 @@
   </head>
   <body>
 
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
     <%= render 'layouts/header' %>
+
     <div class="container">
-      
-      <div class="fb-like" data-href="https://www.facebook.com/pages/Lazy-Hub/294448171177" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <div id="fb-root"></div>
       <a href="https://twitter.com/Lazy_Hub" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @Lazy_Hub</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-      </script>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs"); twttr.widgets.load();</script>
+      <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk')); FB.XFBML.parse($(".dright")[0]);</script>
+      <div class="fb-like" data-href="https://www.facebook.com/pages/Lazy-Hub/294448171177" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
