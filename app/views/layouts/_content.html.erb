@@ -2,12 +2,6 @@
 <table>
   <thead>
     <tr>
-      <th>Points</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th>Views</th>
       <% if signed_in? %>
       <% if current_user.admin? && !current_user?(@user) %>
       <th></th>
@@ -15,10 +9,13 @@
       <th></th>
       <% end %>
       <% end %>
+      <th></th>
+      <th></th>
+      <th>Points</th>
       <% if signed_in? && !current_user.admin? %>
-      <th></th>
+      <th>Views</th>
       <% else %>
-      <th></th>
+      <th>Views</th>
       <% end %>
     </tr>
   </thead>
@@ -26,17 +23,21 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td class = "points"><%= (article.get_upvotes.size) %></td>
-        <td><%= link_to like_article_path(article.id) do
-        image_tag("upvote.jpg", onmouseover: "this.src='#{asset_path('upvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('upvote.jpg')}'")
-        end %></td>
-        <td><%= link_to dislike_article_path(article.id) do
-        image_tag("downvote.jpg", onmouseover: "this.src='#{asset_path('downvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('downvote.jpg')}'")
-        end %></td>
-        <td><%= link_to image_tag("share_button.jpg", :alt => "rss feed"), dislike_article_path(article.id), method: :put %></td>
-        <td><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></td>
-        <td class = "views"><%= article.views %></td>
         <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'"><%= link_to image_tag(article.image_tag, :alt => "rss feed"), views_article_path(article.id), method: :post %></td>
+        <td>
+          <ul id = "content_actions">
+            <li><%= link_to like_article_path(article.id) do
+              image_tag("upvote.jpg", onmouseover: "this.src='#{asset_path('upvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('upvote.jpg')}'")
+                end %></li>
+            <li><%= link_to dislike_article_path(article.id) do
+              image_tag("downvote.jpg", onmouseover: "this.src='#{asset_path('downvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('downvote.jpg')}'")
+              end %></li>
+            <li><%= link_to image_tag("share_button.jpg", :alt => "rss feed"), dislike_article_path(article.id), method: :put %></li>
+            <li><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></li>
+          </ul>
+        </td>
+        <td class = "points"><%= (article.get_upvotes.size) %></td>
+        <td class = "views"><%= article.views %></td>
         <% if signed_in? %>
         <% if current_user.admin? && !current_user?(@user) %>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
