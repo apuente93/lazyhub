@@ -15,6 +15,7 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
+        <td><%= article.image_tag %></td>
         <td><%= article.upvote %></td>
         <td><%= article.downvote %></td>
         <td><%= article.views %></td>

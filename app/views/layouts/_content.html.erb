@@ -36,7 +36,7 @@
         <td><%= link_to image_tag("share_button.jpg", :alt => "rss feed"), dislike_article_path(article.id), method: :put %></td>
         <td><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></td>
         <td class = "views"><%= article.views %></td>
-        <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'"><%= link_to article.title, views_article_path(article.id), {:style=>'color: black;', :class => "article_type", method: :post} %></td>
+        <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'"><%= link_to image_tag(article.image_tag, :alt => "rss feed"), views_article_path(article.id), method: :post %></td>
         <% if signed_in? %>
         <% if current_user.admin? && !current_user?(@user) %>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>

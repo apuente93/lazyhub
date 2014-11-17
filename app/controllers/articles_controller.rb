@@ -136,7 +136,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :article_type_id, :title)
+      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :article_type_id, :title, :image_tag)
     end
 
     def user_params
