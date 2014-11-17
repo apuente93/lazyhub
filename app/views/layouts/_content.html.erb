@@ -27,8 +27,12 @@
     <% @articles.each do |article| %>
       <tr>
         <td class = "points"><%= (article.get_upvotes.size) %></td>
-        <td><%= link_to image_tag("upvote.jpg", :alt => "rss feed"),like_article_path(article.id), method: :put %></td>
-        <td><%= link_to image_tag("downvote.jpg", :alt => "rss feed"), dislike_article_path(article.id), method: :put %></td>
+        <td><%= link_to like_article_path(article.id) do
+        image_tag("upvote.jpg", onmouseover: "this.src='#{asset_path('upvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('upvote.jpg')}'")
+        end %></td>
+        <td><%= link_to dislike_article_path(article.id) do
+        image_tag("downvote.jpg", onmouseover: "this.src='#{asset_path('downvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('downvote.jpg')}'")
+        end %></td>
         <td><%= link_to image_tag("share_button.jpg", :alt => "rss feed"), dislike_article_path(article.id), method: :put %></td>
         <td><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></td>
         <td class = "views"><%= article.views %></td>

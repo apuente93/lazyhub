@@ -24,13 +24,13 @@ class ArticlesController < ApplicationController
   def upvote
     @article = Article.find(params[:id])
     @article.liked_by current_user
-    redirect_to :back
+    redirect_to root_path
   end
 
   def downvote
     @article = Article.find(params[:id])
     @article.downvote_from current_user
-    redirect_to :back
+    redirect_to root_path
   end
 
   # GET /articles/new
