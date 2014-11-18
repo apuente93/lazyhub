@@ -2,7 +2,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'">
+        <td class = "content_column">
             <ul id = "content_column">
               <li><%= article.title %></li>
               <li><%= link_to image_tag(article.image_tag, :alt => "rss feed"), views_article_path(article.id), method: :post %></li>
@@ -43,7 +43,7 @@
   <tbody>
     <% @top_articles.take(5).each do |article| %>
       <tr>
-        <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'">
+        <td class = "content_column">
             <ul id = "content_column">
               <li id = "rank"><%= article.rank %></li>
               <li id = "top_article_images"><%= link_to image_tag(article.image_tag2, :alt => "rss feed"), views_article_path(article.id), method: :post %></li>
