@@ -67,7 +67,6 @@ class ArticlesController < ApplicationController
           @article.save
         end
         @article.views = 0
-
         @article.save;
 
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
@@ -136,7 +135,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :article_type_id, :title, :image_tag)
+      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :article_type_id, :title, :image_tag, :image_tag2, :rank)
     end
 
     def user_params

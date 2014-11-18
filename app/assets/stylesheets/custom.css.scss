@@ -225,6 +225,7 @@ input
 
 .top5_table
 {
+  overflow: auto;
   border: 6px solid black;
   width: 300px;
   float: right;
@@ -232,6 +233,21 @@ input
   {
     font-size: 0.5em;
   }
+}
+
+#rank
+{
+  position: relative;
+  right: 10%;
+  background-color: yellow;
+  height: 40px;
+  width: 40px;
+  font-size: 0.7em;
+}
+
+#top_article_images
+{
+  clear: both;
 }
 
 td

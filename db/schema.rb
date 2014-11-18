@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117173259) do
+ActiveRecord::Schema.define(version: 20141118020823) do
 
   create_table "articles", force: true do |t|
     t.integer  "upvote"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20141117173259) do
     t.integer  "article_type_id"
     t.string   "title"
     t.string   "image_tag"
+    t.string   "image_tag2"
+    t.integer  "rank"
   end
 
   create_table "comments", force: true do |t|
