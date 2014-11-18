@@ -28,6 +28,7 @@ textarea
 .center 
 {
   text-align: center;
+  overflow: auto;
 }
 
 .center h1 
@@ -93,6 +94,7 @@ footer
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999;
+  clear: both;
 }
 
 footer small
@@ -214,12 +216,24 @@ input
 }
 
 /* Content helper */
-table
+.content_table
 {
   border: 6px solid black;
-  text-decoration: none;
-  width: 700px;
+  width: 650px;
+  float: left;
 }
+
+.top5_table
+{
+  border: 6px solid black;
+  width: 300px;
+  float: right;
+  li
+  {
+    font-size: 0.5em;
+  }
+}
+
 td
 {
   border: 6px solid black;
@@ -228,22 +242,17 @@ td
 }
 thead
 {
-  line-height: 15px;
   background-color: black;
-  tr th
-  {
-    padding: 9px;
-    font-size: 0.6em;
-    color: #ffffff
-  }
+  color: #ffffff;
 }
+
 #content_actions
 {
   list-style-type: none;
   margin: 0 auto;
   li
   {
-    margin-bottom: 3.33px;
+    margin-bottom: 10px;
   }
 }
 .content_column
@@ -253,6 +262,16 @@ thead
   width: 650px;
   cursor: pointer;
   font-weight: bold;
+}
+#content_column
+{
+  list-style-type: none;
+  .inline_stats
+  {
+    display: inline;
+    padding-right: 20px;
+    float: right;
+  }
 }
 .content_column:hover
 {
@@ -268,6 +287,10 @@ thead
 {
   text-decoration: none;
   background-color: red;
+}
+#new_article_button
+{
+  clear: both;
 }
 .points
 {

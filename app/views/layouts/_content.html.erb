@@ -1,29 +1,15 @@
-
-<table>
-  <thead>
-    <tr>
-      <% if signed_in? %>
-      <% if current_user.admin? && !current_user?(@user) %>
-      <th></th>
-      <th></th>
-      <th></th>
-      <% end %>
-      <% end %>
-      <th></th>
-      <th></th>
-      <th>Points</th>
-      <% if signed_in? && !current_user.admin? %>
-      <th>Views</th>
-      <% else %>
-      <th>Views</th>
-      <% end %>
-    </tr>
-  </thead>
-
+<table class = "content_table">
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'"><%= link_to image_tag(article.image_tag, :alt => "rss feed"), views_article_path(article.id), method: :post %></td>
+        <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'">
+            <ul id = "content_column">
+              <li><%= article.title %></li>
+              <li><%= link_to image_tag(article.image_tag, :alt => "rss feed"), views_article_path(article.id), method: :post %></li>
+              <li class = "inline_stats">Points: <%= (article.get_upvotes.size) %></li>
+              <li class = "inline_stats">Views: <%= article.views %></li>
+            </ul>
+        </td>
         <td>
           <ul id = "content_actions">
             <li><%= link_to like_article_path(article.id) do
@@ -34,24 +20,48 @@
               end %></li>
             <li><%= link_to image_tag("share_button.jpg", :alt => "rss feed"), dislike_article_path(article.id), method: :put %></li>
             <li><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></li>
+            <% if signed_in? %>
+            <% if current_user.admin? && !current_user?(@user) %>
+            <li><%= link_to 'Edit', edit_article_path(article) %></li>
+            <li><%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <% end %>
+            <% end %>
           </ul>
         </td>
-        <td class = "points"><%= (article.get_upvotes.size) %></td>
-        <td class = "views"><%= article.views %></td>
-        <% if signed_in? %>
-        <% if current_user.admin? && !current_user?(@user) %>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<div id = "top5">
+<table class = "top5_table">
+  <thead>
+    <tr>
+      <td>Top 5</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.take(5).each do |article, i| %>
+      <tr>
+        <td class = "content_column" onclick="location.href='<%= views_article_path(article.id) %>'">
+            <ul id = "content_column">
+              <li><%= article.title %></li>
+              <!--<li><%= link_to image_tag(article.image_tag, :alt => "rss feed"), views_article_path(article.id), method: :post %></li>-->
+              <li class = "inline_stats">Points: <%= (article.get_upvotes.size) %></li>
+              <li class = "inline_stats">Views: <%= article.views %></li>
+            </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
 <%= will_paginate @articles %>
 
 <% if signed_in? %>
+<div id = "new_article_button">
 <%= link_to 'New Article', new_article_path %>
+</div>
 
 <% end %>
