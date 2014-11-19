@@ -26,4 +26,14 @@ Lazyhub::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandboxd62399d82de64044a3631f43e5612050.mailgun.org",
+    :user_name => "postmaster@sandboxd62399d82de64044a3631f43e5612050.mailgun.org",
+    :password => "043901fb39e59e00e3cf3385397faff6"
+  }
 end

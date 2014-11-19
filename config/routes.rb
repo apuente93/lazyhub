@@ -1,4 +1,6 @@
 Lazyhub::Application.routes.draw do
+  resources :subscriptions, :only => [:new, :create]
+
   resources :articles do
     member do 
        post :views
