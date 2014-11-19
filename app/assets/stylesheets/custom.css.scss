@@ -1,3 +1,6 @@
+//= depend_on_asset "glyphicons-halflings.png"
+//= depend_on_asset "glyphicons-halflings-white.png"
+
 @import "bootstrap";
 
 html 
@@ -228,8 +231,9 @@ input
 /* Content helper */
 .content_table
 {
+  overflow: auto;
   border: 6px solid black;
-  width: 650px;
+  width: 580px;
   float: left;
 }
 
@@ -247,8 +251,6 @@ input
 
 #rank
 {
-  position: relative;
-  right: 10%;
   background-color: yellow;
   height: 40px;
   width: 40px;
@@ -284,25 +286,19 @@ thead
 .content_column
 {
   font-size: 1em;
-  height: 20px;
-  width: 650px;
   cursor: pointer;
   font-weight: bold;
 }
 #content_column
 {
   list-style-type: none;
+  margin-left: 0px;
   .inline_stats
   {
     display: inline;
     padding-right: 20px;
     float: right;
   }
-}
-.content_column:hover
-{
-  text-decoration: none;
-  background-color: #c1f787;
 }
 .edit
 {
