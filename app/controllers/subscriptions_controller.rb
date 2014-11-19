@@ -11,7 +11,7 @@ class SubscriptionsController < ApplicationController
     if @subscription.save
       # queue a task to send a confirmation email (see below)
       ModelMailer.new_record_notification(@subscription).deliver
-      redirect_to root_path, :notice => 'Thanks for signing up.'
+      redirect_to root_path, :notice => 'Thank you!'
     else
       render :new
     end
