@@ -19,13 +19,15 @@
               image_tag("downvote.jpg", onmouseover: "this.src='#{asset_path('downvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('downvote.jpg')}'")
               end %></li>
             <li><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></li>
-            <li><a class="twitter-share-button"
+            <li>
+              <a class="twitter-share-button"
                     href="https://twitter.com/share"
                     data-url= "http://www.lazyhub.com/articles/<%= article.id %>"
                     data-count="vertical">
                     Tweet
                 </a>
             </li>
+            <li><iframe src="//www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.lazyhub.com%2Farticles%2F<%= article.id %>&amp;layout=box_count" scrolling="no" frameborder="0" width="56px" height="65px" style="border:none; overflow:hidden;" allowTransparency="true"></iframe></li>
             <% if signed_in? %>
             <% if current_user.admin? && !current_user?(@user) %>
             <li><%= link_to 'Edit', edit_article_path(article) %></li>
