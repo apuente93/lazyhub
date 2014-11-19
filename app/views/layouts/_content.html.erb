@@ -21,14 +21,11 @@
             <li><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></li>
             <li><a class="twitter-share-button"
                     href="https://twitter.com/share"
-                    data-url= <%= article %>
-                    data-counturl= <%= article %>
+                    data-url= "http://lazyhub/articles/<%= article.id %>"
+                    data-counturl= "http://lazyhub/articles/<%= article.id %>"
                     data-count="vertical">
                     Tweet
                 </a>
-                <script type="text/javascript">
-                  window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
-                </script>
             </li>
             <% if signed_in? %>
             <% if current_user.admin? && !current_user?(@user) %>
