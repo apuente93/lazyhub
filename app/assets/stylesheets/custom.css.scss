@@ -232,7 +232,6 @@ input
 .content_table
 {
   overflow: auto;
-  border: 6px solid black;
   width: 580px;
   float: left;
 }
@@ -240,13 +239,18 @@ input
 .top5_table
 {
   overflow: auto;
-  border: 6px solid black;
+  border: 2px solid black;
   width: 300px;
   float: right;
   li
   {
     font-size: 0.5em;
   }
+}
+#top5_title
+{
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 #rank
@@ -264,8 +268,6 @@ input
 
 td
 {
-  border: 6px solid black;
-  padding: 2px;
   text-decoration: none;
 }
 thead
@@ -273,15 +275,32 @@ thead
   background-color: black;
   color: #ffffff;
 }
-
+#title_div
+{
+  background-color : #000000;
+  font-size: 1.1em;
+  padding-top: 10px;
+  padding-bottom:5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #b0b0b0;
+}
+#title_div:hover
+{
+  color: #ffffff;
+}
 #content_actions
 {
   list-style-type: none;
   margin: 0 auto;
   li
   {
-    margin-bottom: 1px;
+    margin-bottom: 2px;
   }
+}
+#content_actions_last
+{
+  margin-top: -8px;
 }
 .content_column
 {
@@ -289,15 +308,26 @@ thead
   cursor: pointer;
   font-weight: bold;
 }
+#points_views
+{
+  margin-top: 2px;
+  margin-right: 35px;
+}
 #content_column
 {
   list-style-type: none;
   margin-left: 0px;
   .inline_stats
   {
+    font-size: 1em;
     display: inline;
-    padding-right: 20px;
-    float: right;
+    float: left;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    border: 2px solid black;
   }
 }
 .edit
