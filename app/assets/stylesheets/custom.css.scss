@@ -239,7 +239,6 @@ input
 .top5_table
 {
   overflow: auto;
-  border: 2px solid black;
   width: 300px;
   float: right;
   li
@@ -251,19 +250,23 @@ input
 {
   font-size: 1.1em;
   font-weight: bold;
+  border: 2px solid black;
 }
 
 #rank
 {
-  background-color: yellow;
-  height: 40px;
-  width: 40px;
-  font-size: 0.7em;
+  background-color: #bcbcbc;
+  height: 30px;
+  width: 30px;
+  font-size: 0.9em;
+  position: absolute;
+  margin-left: -1px;
+  margin-top: -1px;
 }
 
 #top_article_images
 {
-  clear: both;
+  margin-bottom: -10px;
 }
 
 td
@@ -307,6 +310,10 @@ thead
   font-size: 1em;
   cursor: pointer;
   font-weight: bold;
+}
+#top5_border
+{
+  border: 2px solid black;
 }
 #points_views
 {
