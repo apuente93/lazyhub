@@ -24,13 +24,23 @@ class ArticlesController < ApplicationController
   def upvote
     @article = Article.find(params[:id])
     @article.liked_by current_user
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.json { render json: @article }
+      format.js
+    end
   end
 
   def downvote
     @article = Article.find(params[:id])
     @article.downvote_from current_user
-    redirect_to root_path
+    
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.json { render json: @article }
+      format.js
+    end
   end
 
   # GET /articles/new
@@ -128,7 +138,6 @@ class ArticlesController < ApplicationController
 
     def signed_in_user
       unless signed_in?
-        store_location
         redirect_to signin_url, notice: "Please sign in."
       end
     end

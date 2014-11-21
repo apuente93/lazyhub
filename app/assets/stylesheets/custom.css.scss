@@ -328,19 +328,33 @@ thead
 {
   list-style-type: none;
   margin-left: 0px;
-  .inline_stats
-  {
-    font-size: 1em;
-    display: inline;
-    float: left;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 5px;
-    border: 2px solid black;
-  }
 }
+.points_stats
+{
+  font-size: 1em;
+  display: inline;
+  float: left;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 5px;
+  border: 2px solid black;
+}
+
+#views_stats
+{
+  font-size: 1em;
+  display: inline;
+  float: left;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 5px;
+  border: 2px solid black;
+  }
+
 .edit
 {
   text-decoration: none;

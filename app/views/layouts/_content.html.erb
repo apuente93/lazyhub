@@ -7,19 +7,31 @@
               <li id = "title_div"><%= article.title %></li>
               <li><%= link_to image_tag(article.image_tag, :alt => "rss feed"), views_article_path(article.id), method: :post %></li>
               <div id = "points_views">
-              <li class = "inline_stats">Points: <%= (article.get_upvotes.size) %></li>
-              <li class = "inline_stats">Views: <%= article.views %></li>
+              <div id = "points_views<%= article.id %>">
+              <li id = "points_stats<%= article.id %>" class = "points_stats">Points: <%= (article.get_upvotes.size) %></li>
+              </div>
+              <li id = "views_stats">Views: <%= article.views %></li>
               </div>
             </ul>
         </td>
         <td>
           <ul id = "content_actions">
-            <li><%= link_to like_article_path(article.id) do
+            <% if signed_in? %>
+            <li id = "upvote"><%= link_to like_article_path(article.id), remote: true do
+              image_tag("upvote.jpg",  onmouseover: "this.src='#{asset_path('upvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('upvote.jpg')}'", onclick: "this.src='#{asset_path('upvote_active.jpg')}'")
+                end %></li>
+            <li id = "downvote"><%= link_to dislike_article_path(article.id), remote: true do
+              image_tag("downvote.jpg", onmouseover: "this.src='#{asset_path('downvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('downvote.jpg')}'", onclick: "this.src='#{asset_path('downvote_active.jpg')}'")
+              end %></li>
+            <% else %>
+            <li id = "upvote"><%= link_to like_article_path(article.id) do
               image_tag("upvote.jpg", onmouseover: "this.src='#{asset_path('upvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('upvote.jpg')}'")
                 end %></li>
-            <li><%= link_to dislike_article_path(article.id) do
+            <li id = "downvote"><%= link_to dislike_article_path(article.id) do
               image_tag("downvote.jpg", onmouseover: "this.src='#{asset_path('downvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('downvote.jpg')}'")
               end %></li>
+            <% end %>
+
             <li><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></li>
             <li><iframe src="//www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.lazyhub.com%2Farticles%2F<%= article.id %>&amp;layout=box_count" scrolling="no" frameborder="0" width="56px" height="60px" style="border:none; overflow:hidden;" allowTransparency="true"></iframe></li>
             <li id = "content_actions_last">
