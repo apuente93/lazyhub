@@ -285,11 +285,11 @@ thead
 #title_div
 {
   background-color : #000000;
-  font-size: 1.1em;
+  font-size: 1em;
   padding-top: 10px;
   padding-bottom:5px;
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 6px;
   color: #b0b0b0;
 }
 #content_actions
@@ -305,13 +305,7 @@ thead
 {
   margin-top: -8px;
 }
-.content_column
-{
-  font-size: 1em;
-  cursor: pointer;
-  font-weight: bold;
-}
-.content_column:hover
+#content_column:hover
 {
   #title_div
   {
@@ -334,10 +328,20 @@ thead
 {
   position: absolute;
   margin-top: -40px;
-  margin-right: 35px;
 }
 #content_column
 {
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  list-style-type: none;
+  margin-left: 8px;
+}
+#content_column2
+{
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
   list-style-type: none;
   margin-left: 0px;
 }

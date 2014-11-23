@@ -66,8 +66,8 @@
   <tbody>
     <% @top_articles.take(5).each do |article| %>
       <tr id = "top5_border">
-        <td class = "content_column">
-            <ul id = "content_column">
+        <td class = "content_column2">
+            <ul id = "content_column2">
               <li id = "rank"><%= article.rank %></li>
               <li id = "top_article_images"><%= link_to image_tag(article.image_tag2, :alt => "rss feed"), views_article_path(article.id), method: :post %></li>
             </ul>
