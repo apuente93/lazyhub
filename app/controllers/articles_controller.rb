@@ -24,6 +24,8 @@ class ArticlesController < ApplicationController
   def upvote
     @article = Article.find(params[:id])
     @article.liked_by current_user
+    @article.rank = @article.get_upvotes.size
+    @article.save
 
     respond_to do |format|
       format.html {redirect_to :back}
@@ -35,6 +37,8 @@ class ArticlesController < ApplicationController
   def downvote
     @article = Article.find(params[:id])
     @article.downvote_from current_user
+    @article.rank = @article.get_upvotes.size
+    @article.save
     
     respond_to do |format|
       format.html {redirect_to :back}
@@ -77,7 +81,8 @@ class ArticlesController < ApplicationController
           @article.save
         end
         @article.views = 0
-        @article.save;
+        @article.rank = 0
+        @article.save
 
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
         format.json { render action: 'show', status: :created, location: @article }
