@@ -297,14 +297,11 @@ thead
 {
   list-style-type: none;
   margin: 0 auto;
+  margin-top: -5px;
   li
   {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
   }
-}
-#content_actions_last
-{
-  margin-top: -6px;
 }
 #content_column:hover
 {
