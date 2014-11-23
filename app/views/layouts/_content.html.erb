@@ -30,10 +30,10 @@
               image_tag("downvote.jpg", onmouseover: "this.src='#{asset_path('downvote_active.jpg')}'", onmouseout: "this.src='#{asset_path('downvote.jpg')}'")
               end %></li>
             <% end %>
-
             <li><%= link_to image_tag("comment_button.jpg", :alt => "rss feed"), article %></li>
-            <li><%= link_to image_tag("facebook_share.jpg", :alt => "rss feed"), "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" %></li>
-            <li><%= link_to image_tag("twitter_share.jpg", :alt => "rss feed"), "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" %></li>
+            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/">
+            <li><%= link_to image_tag("facebook_share.jpg", :alt => "rss feed"), "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.lazyhub.com" %></li>
+            <li><%= link_to image_tag("twitter_share.jpg", :alt => "rss feed"), "https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.lazyhub.com&text=LazyHub&via=Lazy_Hub" %></li>
             <% if signed_in? %>
             <% if current_user.admin? && !current_user?(@user) %>
             <li><%= link_to 'Edit', edit_article_path(article) %></li>
