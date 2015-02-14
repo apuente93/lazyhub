@@ -6,18 +6,19 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    let!(:m1) { FactoryGirl.create(:micropost, user: user, content: "Foo") }
-    let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
+    let(:article) {FactoryGirl.create(:article, user: user, content: "Foo", article_type: "Laugh") }
+    let!(:m1) { FactoryGirl.create(:comment, user: user, article: article, content: "Foo") }
+    let!(:m2) { FactoryGirl.create(:comment, user: user, article: article, content: "Bar") }
 
     before { visit user_path(user) }
 
-    it { should have_content(user.name) }
-    it { should have_title(user.name) }
+    it { should have_content(user.username) }
+    it { should have_title(user.username) }
 
-    describe "microposts" do
+    describe "comments" do
       it { should have_content(m1.content) }
       it { should have_content(m2.content) }
-      it { should have_content(user.microposts.count) }
+      it { should have_content(user.comments.count) }
     end
   end
 
@@ -41,7 +42,7 @@ describe "User pages" do
 
       it "should list each user" do
         User.paginate(page: 1).each do |user|
-          expect(page).to have_selector('li', text: user.name)
+          expect(page).to have_selector('li', text: user.username)
         end
       end
     end
@@ -89,7 +90,7 @@ describe "User pages" do
 
     describe "with valid information" do
       before do
-        fill_in "Name", with: "Example User"
+        fill_in "Username", with: "Example User"
         fill_in "Email", with: "user@example.com"
         fill_in "Password", with: "foobar"
         fill_in "Confirmation", with: "foobar"
@@ -104,7 +105,7 @@ describe "User pages" do
         let(:user) { User.find_by(email: 'user@example.com') }
 
         it { should have_link('Sign out') }
-        it { should have_title(user.name) }
+        it { should have_title(user.username) }
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }
       end
     end
@@ -124,20 +125,20 @@ describe "User pages" do
     end
 
     describe "with valid information" do
-      let(:new_name)  { "New Name" }
+      let(:new_username)  { "New Username" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Name",             with: new_name
+        fill_in "Username",             with: new_username
         fill_in "Email",            with: new_email
         fill_in "Password",         with: user.password
         fill_in "Confirm Password", with: user.password
         click_button "Save changes"
       end
 
-      it { should have_title(new_name) }
+      it { should have_title(new_username) }
       it { should have_selector('div.alert.alert-success') }
       it { should have_link('Sign out', href: signout_path) }
-      specify { expect(user.reload.name).to  eq new_name }
+      specify { expect(user.reload.username).to  eq new_username }
       specify { expect(user.reload.email).to eq new_email }
     end
   end

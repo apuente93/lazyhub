@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
 	acts_as_votable
+	belongs_to :user
 	has_many :comments, dependent: :destroy
 	validates :content, presence: true
 	validates :article_type, presence: true

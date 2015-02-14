@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118222143) do
+ActiveRecord::Schema.define(version: 20150213231052) do
 
   create_table "articles", force: true do |t|
-    t.integer  "upvote"
-    t.integer  "downvote"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -26,6 +24,7 @@ ActiveRecord::Schema.define(version: 20141118222143) do
     t.string   "image_tag"
     t.string   "image_tag2"
     t.integer  "rank"
+    t.integer  "user_id"
   end
 
   create_table "comments", force: true do |t|
@@ -35,6 +34,9 @@ ActiveRecord::Schema.define(version: 20141118222143) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comments", ["article_id", "created_at"], name: "index_comments_on_article_id_and_created_at"
+  add_index "comments", ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
 
   create_table "subscriptions", force: true do |t|
     t.string   "email"
@@ -49,9 +51,8 @@ ActiveRecord::Schema.define(version: 20141118222143) do
     t.string   "password_digest"
     t.integer  "age"
     t.string   "remember_token"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
     t.string   "username"
-    t.integer  "upvote"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

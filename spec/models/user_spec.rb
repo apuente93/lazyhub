@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe User do
 
-  before { @user = User.new(name: "Example User", email: "user@example.com", 
+  before { @user = User.new(username: "Example User", email: "user@example.com", 
     password: "foobar", password_confirmation: "foobar") }
 
   subject { @user }
 
-  it { should respond_to(:name) }
+  it { should respond_to(:username) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:remember_token) }
@@ -15,41 +15,41 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
-  it { should respond_to(:microposts) }
+  it { should respond_to(:comments) }
 
   it { should be_valid }
   it { should_not be_admin }
 
-  describe "micropost associations" do
+  describe "comment associations" do
 
     before { @user.save }
-    let!(:older_micropost) do
-      FactoryGirl.create(:micropost, user: @user, created_at: 1.day.ago)
+    let!(:older_comment) do
+      FactoryGirl.create(:comment, user: @user, created_at: 1.day.ago)
     end
-    let!(:newer_micropost) do
-      FactoryGirl.create(:micropost, user: @user, created_at: 1.hour.ago)
+    let!(:newer_comment) do
+      FactoryGirl.create(:comment, user: @user, created_at: 1.hour.ago)
     end
 
-    it "should have the right microposts in the right order" do
-      expect(@user.microposts.to_a).to eq [newer_micropost, older_micropost]
+    it "should have the right comments in the right order" do
+      expect(@user.comments.to_a).to eq [newer_comment, older_comment]
     end
 
     describe "status" do
       let(:unfollowed_post) do
-        FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+        FactoryGirl.create(:comment, user: FactoryGirl.create(:user))
       end
 
-      its(:feed) { should include(newer_micropost) }
-      its(:feed) { should include(older_micropost) }
+      its(:feed) { should include(newer_comment) }
+      its(:feed) { should include(older_comment) }
       its(:feed) { should_not include(unfollowed_post) }
     end
 
-    it "should destroy associated microposts" do
-      microposts = @user.microposts.to_a
+    it "should destroy associated comments" do
+      comments = @user.comments.to_a
       @user.destroy
-      expect(microposts).not_to be_empty
-      microposts.each do |micropost|
-        expect(Micropost.where(id: micropost.id)).to be_empty
+      expect(comments).not_to be_empty
+      comments.each do |comment|
+        expect(Comment.where(id: comment.id)).to be_empty
       end
     end
     
@@ -64,8 +64,8 @@ describe User do
     it { should be_admin }
   end
   
-  describe "when name is not present" do
-    before { @user.name = " " }
+  describe "when username is not present" do
+    before { @user.username = " " }
     it { should_not be_valid }
   end
 
@@ -74,8 +74,8 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "when name is too long" do
-    before { @user.name = "a" * 51 }
+  describe "when username is too long" do
+    before { @user.username = "a" * 51 }
     it { should_not be_valid }
   end
 
@@ -112,7 +112,7 @@ describe User do
 
   describe "when password is not present" do
     before do
-      @user = User.new(name: "Example User", email: "user@example.com",
+      @user = User.new(username: "Example User", email: "user@example.com",
                        password: " ", password_confirmation: " ")
     end
     it { should_not be_valid }
