@@ -5,3 +5,30 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'rubygems'
+require 'nokogiri'
+require 'open-uri'
+
+reddit_page = Nokogiri::HTML(open("http://www.reddit.com/"))   
+reddit_links = reddit_page.css("a.title.may-blank")
+
+
+#admin = User.create!(username: "apuente",
+ #                        email: "apuente@wisc.edu",
+  #                       password: "racine93!",
+   #                      password_confirmation: "racine93!",
+    #                     admin: true)
+
+reddit_links.each do |link| 
+	Article.create!(content: "#{link['href']}",
+						views: 0,
+						article_type: "Laugh",
+						article_type_id: 1,
+						title: "#{link.text}",
+						image_tag: "content/espn_logo.jpg",
+						image_tag2: "content/espn_logo_2.jpg",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+end
+
