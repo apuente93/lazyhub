@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: www-lazyhub-com
+  api_key: '846266953621379'
+  api_secret: 9pQpZYIVoxu91Pv5Wz-GTdwm-Hc
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: www-lazyhub-com
+  api_key: '846266953621379'
+  api_secret: 9pQpZYIVoxu91Pv5Wz-GTdwm-Hc
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: www-lazyhub-com
+  api_key: '846266953621379'
+  api_secret: 9pQpZYIVoxu91Pv5Wz-GTdwm-Hc
+  enhance_image_tag: true
+  static_image_support: false
