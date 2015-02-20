@@ -11,7 +11,7 @@ require 'nokogiri'
 require 'open-uri'
 
 reddit_page = Nokogiri::HTML(open("http://reddit.com/r/funny"))   
-reddit_links = reddit_page.css("a.thumbnail")
+reddit_links = reddit_page.css("div.thing")
 
 espn_page = Nokogiri::HTML(open("http://espn.go.com"))   
 espn_links = espn_page.css("div#content.container div.span-2.ts-right.mod-skirmish div.mod-container.mod-tabs.mod-no-footer.top-headlines div.mod-content ul.headlines li a")
@@ -74,15 +74,19 @@ espn_links.each do |link|
 						user_id:  1)
 end
 
+#link.at_css("img")['src']
+
 reddit_links.each do |link| 
-	a = link.at_css("img")['src']
-	Article.create!(content: "#{link['href']}",
+	a = link.css("a.thumbnail")
+	c = a.at_css("img")['src']
+	b = link.css("a.title")
+	Article.create!(content: "#{a[0]['href']}",
 						views: 0,
 						article_type: "Laugh",
 						article_type_id: 1,
-						title: "#{link.text}",
-						image_tag: "http:#{a}",
-						image_tag2: "http:#{a}",
+						title: "#{b.text}",
+						image_tag: "http:#{c}",
+						image_tag2: "http:#{c}",
 						rank: 0,
 						views: 0,
 						user_id:  1)
