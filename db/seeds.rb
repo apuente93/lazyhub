@@ -102,5 +102,3 @@ cnn_links.each do |link|
 						views: 0,
 						user_id:  1)
 end
-
-

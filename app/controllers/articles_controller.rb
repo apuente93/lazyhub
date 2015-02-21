@@ -63,23 +63,6 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     respond_to do |format|
-      if @article.save
-        if @article.article_type == 'Laugh'
-          @article.article_type_id = 1
-          @article.save
-        end
-        if @article.article_type == 'Game'
-          @article.article_type_id = 2
-          @article.save
-        end
-        if @article.article_type == 'News'
-          @article.article_type_id = 3
-          @article.save
-        end
-        if @article.article_type == 'Random'
-          @article.article_type_id = 4
-          @article.save
-        end
         @article.views = 0
         @article.rank = 0
         @article.save
@@ -99,22 +82,6 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     respond_to do |format|
       if @article.update_attributes(article_params)
-        if @article.article_type == 'Laugh'
-          @article.article_type_id = 1
-          @article.save
-        end
-        if @article.article_type == 'Game'
-          @article.article_type_id = 2
-          @article.save
-        end
-        if @article.article_type == 'News'
-          @article.article_type_id = 3
-          @article.save
-        end
-        if @article.article_type == 'Random'
-          @article.article_type_id = 4
-          @article.save
-        end
         format.html { redirect_to root_path, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
