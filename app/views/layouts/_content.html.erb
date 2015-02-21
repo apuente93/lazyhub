@@ -13,7 +13,7 @@
       <tr>
         <td class = "content_column">
             <ul id = "content_column">
-              <li id = "title_div"><%= article.title %></li>
+              <li id = "title_div"><% if article.title.squish.length >= 50 %><%= article.title.squish[0...50] + "..."%><% else %><%= article.title %><% end %></li>
               <li><%= link_to fetch_image_tag(article.image_tag, :width => 500, :height => 250, :crop => :fill), views_article_path(article.id), method: :post %></li>
               <div class = "statistics">
               <li id = "points_stats">Points: <%= (article.get_upvotes.size) %></li>

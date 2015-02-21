@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
 
   def laugh
     @subscription = Subscription.new
-    @articles = Article.where(article_type_id: 1).sort_by! { |a| [-a.get_upvotes.size, -a.views]}.paginate(:page => params[:page], :per_page => 20)
+    @articles = Article.where(article_type: 1).sort_by! { |a| [-a.get_upvotes.size, -a.views]}.paginate(:page => params[:page], :per_page => 20)
     @top_articles = Article.all.sort_by! { |a| [-a.rank, -a.views]}
   end
 

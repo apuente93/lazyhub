@@ -83,8 +83,8 @@ reddit_links.each do |link|
 						article_type: "Laugh",
 						article_type_id: 1,
 						title: "#{b.text}",
-						image_tag: "http:#{c}",
-						image_tag2: "http:#{c}",
+						image_tag: "http://venturebeat.com/wp-content/uploads/2014/07/reddit-alien-780x487.jpg",
+						image_tag2: "http://venturebeat.com/wp-content/uploads/2014/07/reddit-alien-780x487.jpg",
 						rank: 0,
 						views: 0,
 						user_id:  1)
