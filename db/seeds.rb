@@ -25,11 +25,29 @@ gag_links = gag_page.css("section#list-view-2 article.badge-entry-container head
 games_page = Nokogiri::HTML(open("http://www.addictinggames.com/hot-games/index.jsp"))   
 games_links = games_page.css("div.gameSlot")
 
+cnet_page = Nokogiri::HTML(open("http://www.cnet.com/news/"))   
+cnet_links = cnet_page.css("div.assetBody a")
+
+buzz_page = Nokogiri::HTML(open("http://www.buzzfeed.com/buzz"))   
+buzz_links = buzz_page.css("div.lede__body a.lede__link")
+
 admin = User.create!(username: "apuente",
                         email: "apuente@wisc.edu",
                         password: "racine93!",
                         password_confirmation: "racine93!",
                         admin: true)
+
+buzz_links.each do |link|
+	Article.create!(content: "http://www.buzzfeed.com#{link['href']}",
+						views: 0,
+						article_type: "Social",
+						title: "#{link.text}",
+						image_tag: "http://s3-ak.buzzfed.com/static/images/global/buzzfeed.jpg?v=201502061701",
+						image_tag2: "http://s3-ak.buzzfed.com/static/images/global/buzzfeed.jpg?v=201502061701",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+end
 
 games_links.each do |link|
 	a = link.css("p a")
@@ -43,6 +61,22 @@ games_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+end
+
+cnet_links.each do |link|
+	a = link.css("h3")
+	if "#{a.text}".squish.empty?
+	else
+	Article.create!(content: "http://www.cnet.com#{link['href']}",
+						views: 0,
+						article_type: "Tech",
+						title: "#{a.text}",
+						image_tag: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
+						image_tag2: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+	end
 end
 
 gag_links.each do |link|
