@@ -74,8 +74,6 @@ espn_links.each do |link|
 						user_id:  1)
 end
 
-#link.at_css("img")['src']
-
 reddit_links.each do |link| 
 	a = link.css("a.thumbnail")
 	c = a.at_css("img")['src']
