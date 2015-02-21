@@ -463,7 +463,8 @@ aside {
 
 #motto
 {
-  padding-top: 30px;
+  clear: both;
+  margin-top: 290px;
 }
 
 #about_signup
@@ -477,4 +478,12 @@ aside {
 #pagination
 {
   clear: both;
+}
+
+#about_banner
+{
+  position: absolute;
+  float: left;
+  width: 100%;
+  right: 0%;
 }
