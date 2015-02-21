@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213231052) do
+ActiveRecord::Schema.define(version: 20150221214339) do
 
   create_table "articles", force: true do |t|
     t.text     "content"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20150213231052) do
     t.datetime "updated_at"
     t.integer  "views"
     t.string   "article_type"
-    t.integer  "article_type_id"
     t.string   "title"
     t.string   "image_tag"
     t.string   "image_tag2"
