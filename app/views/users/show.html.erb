@@ -12,7 +12,21 @@
     <% if @user.comments.any? %>
       <h3>Comments (<%= @user.comments.count %>)</h3>
       <ol class="comments">
-        <%= render @comments %>
+        <% @user.comments.each do |comment| %>
+          <li>
+            <span class="content"><%= comment.content %></span>
+            <span class="timestamp">
+            Posted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to User.find_by_id(comment.user_id).username, User.find_by_id(comment.user_id)%> to <%= link_to Article.find_by_id(comment.article_id).title, Article.find_by_id(comment.article_id) %>.
+            </span>
+            <div>
+              <% if current_user?(comment.user) %>
+              <%= link_to "delete", comment, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: comment.content %>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
       </ol>
       <%= will_paginate @comments %>
     <% end %>

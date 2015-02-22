@@ -72,7 +72,7 @@
         <td class = "content_column2">
             <ul id = "content_column2">
               <li id = "rank"><%= @count %></li>
-              <li id = "top_article_images"><%= link_to fetch_image_tag(article.image_tag2, :width => 300, :height => 150, :crop => :fill), views_article_path(article.id), method: :post %></li>
+              <li id = "top_article_images"><%= link_to fetch_image_tag(article.image_tag, :width => 300, :height => 150, :crop => :fill), views_article_path(article.id), method: :post %></li>
             </ul>
         </td>
       </tr>

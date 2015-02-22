@@ -38,15 +38,17 @@ admin = User.create!(username: "apuente",
                         admin: true)
 
 buzz_links.each do |link|
+	if "#{link.text}".squish.empty?
+	else
 	Article.create!(content: "http://www.buzzfeed.com#{link['href']}",
 						views: 0,
 						article_type: "Social",
-						title: "#{link.text}",
+						title: "#{link.text}".squish,
 						image_tag: "http://s3-ak.buzzfed.com/static/images/global/buzzfeed.jpg?v=201502061701",
-						image_tag2: "http://s3-ak.buzzfed.com/static/images/global/buzzfeed.jpg?v=201502061701",
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	end
 end
 
 games_links.each do |link|
@@ -55,9 +57,8 @@ games_links.each do |link|
 	Article.create!(content: "http://www.addictinggames.com#{b[0]['href']}",
 						views: 0,
 						article_type: "Game",
-						title: "#{a.text}",
+						title: "#{a.text}".squish,
 						image_tag: "http://img2.wikia.nocookie.net/__cb20131228011010/logopedia/images/c/c2/Addicting_Games_974.jpg",
-						image_tag2: "http://img2.wikia.nocookie.net/__cb20131228011010/logopedia/images/c/c2/Addicting_Games_974.jpg",
 						rank: 0,
 						views: 0,
 						user_id:  1)
@@ -70,9 +71,8 @@ cnet_links.each do |link|
 	Article.create!(content: "http://www.cnet.com#{link['href']}",
 						views: 0,
 						article_type: "Tech",
-						title: "#{a.text}",
+						title: "#{a.text}".squish,
 						image_tag: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
-						image_tag2: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
 						rank: 0,
 						views: 0,
 						user_id:  1)
@@ -85,9 +85,8 @@ gag_links.each do |link|
 	Article.create!(content: "http://www.9gag.com#{link['href']}",
 						views: 0,
 						article_type: "Random",
-						title: "#{link.text}",
+						title: "#{link.text}".squish,
 						image_tag: "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg",
-						image_tag2: "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg",
 						rank: 0,
 						views: 0,
 						user_id:  1)
@@ -97,9 +96,8 @@ espn_links.each do |link|
 	Article.create!(content: "#{link['href']}",
 						views: 0,
 						article_type: "Sports",
-						title: "#{link.text}",
+						title: "#{link.text}".squish,
 						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/espn_logo_cuaiiw.jpg",
-						image_tag2: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/espn_logo_2_m4orzz.jpg",
 						rank: 0,
 						views: 0,
 						user_id:  1)
@@ -112,9 +110,8 @@ reddit_links.each do |link|
 	Article.create!(content: "#{a[0]['href']}",
 						views: 0,
 						article_type: "Laugh",
-						title: "#{b.text}",
+						title: "#{b.text}".squish,
 						image_tag: "http://venturebeat.com/wp-content/uploads/2014/07/reddit-alien-780x487.jpg",
-						image_tag2: "http://venturebeat.com/wp-content/uploads/2014/07/reddit-alien-780x487.jpg",
 						rank: 0,
 						views: 0,
 						user_id:  1)
@@ -124,9 +121,8 @@ cnn_links.each do |link|
 	Article.create!(content: "http://www.cnn.com#{link['href']}",
 						views: 0,
 						article_type: "News",
-						title: "#{link.text}",
+						title: "#{link.text}".squish,
 						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/cnn_logo_psiwce.jpg",
-						image_tag2: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/cnn_logo_2_fzeoj1.jpg",
 						rank: 0,
 						views: 0,
 						user_id:  1)

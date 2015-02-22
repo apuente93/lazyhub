@@ -45,6 +45,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_page_check
+      @article_info  = true
+  end
+
   private
 
     def user_params
