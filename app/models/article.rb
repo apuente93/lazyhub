@@ -5,6 +5,8 @@ class Article < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	validates :content, presence: true
 	validates :article_type, presence: true
+    validates :user_id, presence: true
+
 	def feed
     	# This is preliminary. See "Following users" for the full implementation.
     	Comment.where("article_id = ?", id)
