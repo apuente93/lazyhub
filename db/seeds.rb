@@ -16,26 +16,134 @@ reddit_links = reddit_page.css("div.thing")
 espn_page = Nokogiri::HTML(open("http://espn.go.com"))   
 espn_links = espn_page.css("div#content.container div.span-2.ts-right.mod-skirmish div.mod-container.mod-tabs.mod-no-footer.top-headlines div.mod-content ul.headlines li a")
 
+goal_page = Nokogiri::HTML(open("http://www.goal.com/en-us/"))   
+goal_links = goal_page.css("div.home-sidebar div.tab-content a")
+
 cnn_page = Nokogiri::HTML(open("http://cnn.com"))   
 cnn_links = cnn_page.css("section#homepage1-zone-1 h3.cd__headline a")
 
 gag_page = Nokogiri::HTML(open("http://9gag.com"))   
 gag_links = gag_page.css("section#list-view-2 article.badge-entry-container header h2.badge-item-title a")
 
-games_page = Nokogiri::HTML(open("http://www.addictinggames.com/hot-games/index.jsp"))   
-games_links = games_page.css("div.gameSlot")
+college_page = Nokogiri::HTML(open("http://www.collegehumor.com/"))   
+college_links = college_page.css("div.col-sm-6 a")
+
+addicting_page = Nokogiri::HTML(open("http://www.addictinggames.com/hot-games/index.jsp"))   
+addicting_links = addicting_page.css("div.gameSlot")
+
+miniclip_page = Nokogiri::HTML(open("http://www.miniclip.com/games/genre-23/top-100/en/#t-n-H"))   
+miniclip_links = miniclip_page.css("a.game-icon")
 
 cnet_page = Nokogiri::HTML(open("http://www.cnet.com/news/"))   
 cnet_links = cnet_page.css("div.assetBody a")
 
+pcmag_page = Nokogiri::HTML(open("http://www.pcmag.com/"))   
+pcmag_links = pcmag_page.css("div#news-stack a")
+
 buzz_page = Nokogiri::HTML(open("http://www.buzzfeed.com/buzz"))   
 buzz_links = buzz_page.css("div.lede__body a.lede__link")
+
+ew_page = Nokogiri::HTML(open("http://www.ew.com/"))   
+ew_links = ew_page.css("section.block-top_stories a")
+
+digg_page = Nokogiri::HTML(open("http://digg.com/"))   
+digg_links = digg_page.css("a.story-title-link")
+
+ebaum_page = Nokogiri::HTML(open("http://www.ebaumsworld.com/"))   
+ebaum_links = ebaum_page.css("div.featureDetails a")
 
 admin = User.create!(username: "apuente",
                         email: "apuente@wisc.edu",
                         password: "racine93!",
                         password_confirmation: "racine93!",
                         admin: true)
+
+
+college_links.each do |link|
+	if "#{link.text}".squish.empty?
+	else
+	Article.create!(content: "http://www.collegehumor.com#{link['href']}",
+						views: 0,
+						article_type: "Random",
+						title: "#{link.text}".squish,
+						image_tag: "http://www.technobuffalo.com/wp-content/uploads/2012/03/College-Humor-logo-640x359.jpg",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+	end
+end
+
+goal_links.each do |link|
+	Article.create!(content: "http://www.goal.com#{link['href']}",
+						views: 0,
+						article_type: "Sports",
+						title: "#{link.text}".squish,
+						image_tag: "http://static.goal.com/280900/280936_heroa.jpg",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+end
+
+pcmag_links.each do |link|
+	Article.create!(content: "#{link['href']}",
+						views: 0,
+						article_type: "Tech",
+						title: "#{link.text}".squish,
+						image_tag: "http://www.getqardio.com/wp-content/uploads/2014/12/PCMag2.png",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+end
+
+ebaum_links.each do |link|
+	Article.create!(content: "http://www.ebaumsworld.com#{link['href']}",
+						views: 0,
+						article_type: "Laugh",
+						title: "#{link.text}".strip_heredoc.lstrip.lines.first.squish,
+						image_tag: "http://cdn.ebaumsworld.com/mediaFiles/picture/366483/82271662.jpg",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+end
+
+miniclip_links.each do |link|
+	Article.create!(content: "http://www.miniclip.com#{link['href']}",
+						views: 0,
+						article_type: "Game",
+						title: "#{link.text}".squish,
+						image_tag: "http://www.lilireviews.com/wp-content/uploads/2013/08/Miniclip01-Logo1.jpg",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+end
+
+digg_links.each do |link|
+	if "#{link.text}".squish.empty?
+	else
+	Article.create!(content: "#{link['href']}",
+						views: 0,
+						article_type: "Social",
+						title: "#{link.text}".squish,
+						image_tag: "http://img2.wikia.nocookie.net/__cb20121224123923/logopedia/images/3/32/Digg_Logo.png",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+	end
+end
+
+ew_links.each do |link|
+	if "#{link.text}".squish.empty?
+	else
+	Article.create!(content: "#{link['href']}",
+						views: 0,
+						article_type: "Social",
+						title: "#{link.text}".squish,
+						image_tag: "http://www.majorcineplex.com/uploads/content/images/entertainment-weekly-logo.jpg",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+	end
+end
 
 buzz_links.each do |link|
 	if "#{link.text}".squish.empty?
@@ -51,7 +159,7 @@ buzz_links.each do |link|
 	end
 end
 
-games_links.each do |link|
+addicting_links.each do |link|
 	a = link.css("p a")
 	b = link.css("div.iconContainer a")
 	Article.create!(content: "http://www.addictinggames.com#{b[0]['href']}",
@@ -111,7 +219,7 @@ reddit_links.each do |link|
 						views: 0,
 						article_type: "Laugh",
 						title: "#{b.text}".squish,
-						image_tag: "http://venturebeat.com/wp-content/uploads/2014/07/reddit-alien-780x487.jpg",
+						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
 						rank: 0,
 						views: 0,
 						user_id:  1)
