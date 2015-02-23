@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @comments = @user.comments.paginate(page: params[:page])
+    @comments = @user.comments.paginate(page: params[:page], :per_page => 20)
+    @articles = @user.articles.paginate(page: params[:page], :per_page => 20)
   end
   
   def new

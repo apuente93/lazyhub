@@ -1,6 +1,5 @@
 <% provide(:title,@user.username) %>
-<div class="row">
-  <aside class="span4">
+  <aside class="span12">
     <section>
       <h1>
         <%= gravatar_for @user %>
@@ -8,15 +7,37 @@
       </h1>
     </section>
   </aside>
-  <div class="span8">
-    <% if @user.comments.any? %>
+<div class="row">
+  <div class="span6">
+      <h3>Posted Articles (<%= @user.articles.count %>)</h3>
+      <ol class="user_articles">
+        <% @user.articles.each do |article| %>
+          <li>
+            <span class="content"><%= link_to article.title, article.content %></span>
+            <span class="timestamp">
+            Posted <%= time_ago_in_words(article.created_at) %> ago to <%= article.article_type %>.
+            </span>
+            <div>
+              <% if current_user?(article.user) %>
+              <%= link_to "delete", article, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: article.title %>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ol>
+      <%= will_paginate @articles %>
+  </div>
+
+  <div class="span6">
       <h3>Comments (<%= @user.comments.count %>)</h3>
-      <ol class="comments">
+      <ol class="user_comments">
         <% @user.comments.each do |comment| %>
           <li>
             <span class="content"><%= comment.content %></span>
             <span class="timestamp">
-            Posted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to User.find_by_id(comment.user_id).username, User.find_by_id(comment.user_id)%> to <%= link_to Article.find_by_id(comment.article_id).title, Article.find_by_id(comment.article_id) %>.
+            Posted <%= time_ago_in_words(comment.created_at) %> ago to <%= link_to Article.find_by_id(comment.article_id).title, Article.find_by_id(comment.article_id) %>.
             </span>
             <div>
               <% if current_user?(comment.user) %>
@@ -29,6 +50,5 @@
         <% end %>
       </ol>
       <%= will_paginate @comments %>
-    <% end %>
   </div>
 </div>
