@@ -1,27 +1,24 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<h1 class="sign_up">Update your profile</h1>
 
-<div class="row">
-  <div class="span6 offset3">
+  <div class="span12 offset6">
+    <a href="http://gravatar.com/emails"><%= gravatar_for @user %></a>
+  </div>
+  <div class="span6 offset3 edit_form">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :username %>
+      <%= f.label :username, class: "labels" %>
       <%= f.text_field :username %>
 
-      <%= f.label :email %>
+      <%= f.label :email, class: "labels" %>
       <%= f.text_field :email %>
 
-      <%= f.label :password %>
+      <%= f.label :password, class: "labels" %>
       <%= f.password_field :password %>
 
-      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.label :password_confirmation, "Confirm Password", class: "labels" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary sign_ups" %>
     <% end %>
-
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
-  </div>
 </div>

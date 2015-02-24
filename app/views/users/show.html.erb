@@ -1,17 +1,15 @@
 <% provide(:title,@user.username) %>
-  <aside class="span12">
-    <section>
-      <h1>
+  <div class="span12 user_icon">
         <%= gravatar_for @user %>
+        <h1 id="username_title">
         <%= @user.username %>
       </h1>
-    </section>
-  </aside>
+  </div>
 <div class="row">
   <div class="span6">
-      <h3>Posted Articles (<%= @user.articles.count %>)</h3>
+      <h3>Posted Articles (<%= @articles.count %>)</h3>
       <ol class="user_articles">
-        <% @user.articles.each do |article| %>
+        <% @articles.each do |article| %>
           <li>
             <span class="content"><%= link_to article.title, article.content %></span>
             <span class="timestamp">
@@ -27,13 +25,13 @@
           </li>
         <% end %>
       </ol>
-      <%= will_paginate @articles %>
+      <%= will_paginate @articles, :param_name => 'articles_page',:inner_window => 2 %>
   </div>
 
   <div class="span6">
-      <h3>Comments (<%= @user.comments.count %>)</h3>
+      <h3>Comments (<%= @comments.count %>)</h3>
       <ol class="user_comments">
-        <% @user.comments.each do |comment| %>
+        <% @comments.each do |comment| %>
           <li>
             <span class="content"><%= comment.content %></span>
             <span class="timestamp">
@@ -49,6 +47,6 @@
           </li>
         <% end %>
       </ol>
-      <%= will_paginate @comments %>
+      <%= will_paginate @comments, :param_name => 'comments_page',:inner_window => 1 %>
   </div>
 </div>

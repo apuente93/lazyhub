@@ -7,9 +7,6 @@
           <li><%= link_to "Home",    root_path %></li>
           <li><%= link_to "About Us",    about_path %></li>
           <% if signed_in? %>
-            <% if current_user.admin?%>
-            <li><%= link_to "Users", users_path %></li>
-            <% end %>
             <li id="fat-menu" class="dropdown" >
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <b class="home_gravatar"><%= gravatar_for(current_user, size: 23) %>
