@@ -7,7 +7,7 @@
   </div>
 <div class="row">
   <div class="span4">
-      <h3>Posted Articles (<%= @articles.count %>)</h3>
+      <h3>Posted Articles (<%= @articles.total_entries %>)</h3>
       <ol class="user_articles">
         <% @articles.each do |article| %>
           <li>
@@ -24,12 +24,12 @@
             </div>
           </li>
         <% end %>
+        <%= will_paginate @articles, :param_name => 'articles_page',:inner_window => 1, :style => 'word-spacing:0px'%>
       </ol>
-      <%= will_paginate @articles, :param_name => 'articles_page',:inner_window => 0 %>
   </div>
 
   <div class="span4">
-      <h3>Comments (<%= @comments.count %>)</h3>
+      <h3>Comments (<%= @comments.total_entries %>)</h3>
       <ol class="user_comments">
         <% @comments.each do |comment| %>
           <li>
@@ -46,12 +46,12 @@
             </div>
           </li>
         <% end %>
+        <%= will_paginate @comments, :param_name => 'comments_page',:inner_window => 1 %>
       </ol>
-      <%= will_paginate @comments, :param_name => 'comments_page',:inner_window => 1 %>
   </div>
 
   <div class="span4">
-      <h3>Favorite Articles (<%= @favorite_articles.count %>)</h3>
+      <h3>Favorite Articles (<%= @favorite_articles.total_entries %>)</h3>
       <ol class="user_favorites">
         <% @favorite_articles.each do |favorite_article| %>
           <li>
@@ -68,7 +68,7 @@
             </div>
           </li>
         <% end %>
+        <%= will_paginate @favorite_articles, :param_name => 'favorite_articles_page',:inner_window => 1 %>
       </ol>
-      <%= will_paginate @favorite_articles, :param_name => 'favorite_articles_page',:inner_window => 1 %>
   </div>
 </div>
