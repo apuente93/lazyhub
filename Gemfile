@@ -20,6 +20,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'cloudinary'
 gem 'mail_form'
 gem 'simple_form'
+gem 'nokogiri'
 gem 'pg'
 
 group :development, :test do

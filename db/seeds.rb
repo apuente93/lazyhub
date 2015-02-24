@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'rubygems'
-#require 'nokogiri'
+require 'nokogiri'
 require 'open-uri'
 
 reddit_page = Nokogiri::HTML(open("http://reddit.com/r/funny"))   
