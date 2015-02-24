@@ -52,17 +52,18 @@ digg_links = digg_page.css("a.story-title-link")
 ebaum_page = Nokogiri::HTML(open("http://www.ebaumsworld.com/"))   
 ebaum_links = ebaum_page.css("div.featureDetails a")
 
-admin = User.create!(username: "apuente",
-                        email: "apuente@wisc.edu",
-                        password: "racine93!",
-                        password_confirmation: "racine93!",
-                        admin: true)
+#admin = User.create!(username: "apuente",
+ #                       email: "apuente@wisc.edu",
+  #                      password: "racine93!",
+   #                     password_confirmation: "racine93!",
+    #                    admin: true)
 
 
 college_links.each do |link|
 	if "#{link.text}".squish.empty?
 	else
-	Article.create!(content: "http://www.collegehumor.com#{link['href']}",
+		if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "http://www.collegehumor.com#{link['href']}",
 						views: 0,
 						article_type: "Random",
 						title: "#{link.text}".squish,
@@ -70,11 +71,14 @@ college_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+		else
+		end
 	end
 end
 
 goal_links.each do |link|
-	Article.create!(content: "http://www.goal.com#{link['href']}",
+	if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "http://www.goal.com#{link['href']}",
 						views: 0,
 						article_type: "Sports",
 						title: "#{link.text}".squish,
@@ -82,10 +86,13 @@ goal_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
 
 pcmag_links.each do |link|
-	Article.create!(content: "#{link['href']}",
+	if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "#{link['href']}",
 						views: 0,
 						article_type: "Tech",
 						title: "#{link.text}".squish,
@@ -93,10 +100,13 @@ pcmag_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
 
 ebaum_links.each do |link|
-	Article.create!(content: "http://www.ebaumsworld.com#{link['href']}",
+	if Article.find_by_title("#{link.text}".strip_heredoc.lstrip.lines.first.squish).nil?
+						Article.create!(content: "http://www.ebaumsworld.com#{link['href']}",
 						views: 0,
 						article_type: "Laugh",
 						title: "#{link.text}".strip_heredoc.lstrip.lines.first.squish,
@@ -104,10 +114,13 @@ ebaum_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
 
 miniclip_links.each do |link|
-	Article.create!(content: "http://www.miniclip.com#{link['href']}",
+	if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "http://www.miniclip.com#{link['href']}",
 						views: 0,
 						article_type: "Game",
 						title: "#{link.text}".squish,
@@ -115,12 +128,15 @@ miniclip_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
 
 digg_links.each do |link|
 	if "#{link.text}".squish.empty?
 	else
-	Article.create!(content: "#{link['href']}",
+		if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "#{link['href']}",
 						views: 0,
 						article_type: "Social",
 						title: "#{link.text}".squish,
@@ -128,13 +144,16 @@ digg_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+		else
+		end
 	end
 end
 
 ew_links.each do |link|
 	if "#{link.text}".squish.empty?
 	else
-	Article.create!(content: "#{link['href']}",
+		if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "#{link['href']}",
 						views: 0,
 						article_type: "Social",
 						title: "#{link.text}".squish,
@@ -142,13 +161,16 @@ ew_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+		else
+		end
 	end
 end
 
 buzz_links.each do |link|
 	if "#{link.text}".squish.empty?
 	else
-	Article.create!(content: "http://www.buzzfeed.com#{link['href']}",
+		if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "http://www.buzzfeed.com#{link['href']}",
 						views: 0,
 						article_type: "Social",
 						title: "#{link.text}".squish,
@@ -156,13 +178,16 @@ buzz_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+		else
+		end
 	end
 end
 
 addicting_links.each do |link|
 	a = link.css("p a")
 	b = link.css("div.iconContainer a")
-	Article.create!(content: "http://www.addictinggames.com#{b[0]['href']}",
+	if Article.find_by_title("#{a.text}".squish).nil?
+						Article.create!(content: "http://www.addictinggames.com#{b[0]['href']}",
 						views: 0,
 						article_type: "Game",
 						title: "#{a.text}".squish,
@@ -170,13 +195,16 @@ addicting_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
 
 cnet_links.each do |link|
 	a = link.css("h3")
 	if "#{a.text}".squish.empty?
 	else
-	Article.create!(content: "http://www.cnet.com#{link['href']}",
+		if Article.find_by_title("#{a.text}".squish).nil?
+						Article.create!(content: "http://www.cnet.com#{link['href']}",
 						views: 0,
 						article_type: "Tech",
 						title: "#{a.text}".squish,
@@ -184,13 +212,16 @@ cnet_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+		else
+		end
 	end
 end
 
 gag_links.each do |link|
 	a = "#{link['href']}"
 	a.slice! "/gag/"
-	Article.create!(content: "http://www.9gag.com#{link['href']}",
+	if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "http://www.9gag.com#{link['href']}",
 						views: 0,
 						article_type: "Random",
 						title: "#{link.text}".squish,
@@ -198,10 +229,13 @@ gag_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
 
 espn_links.each do |link| 
-	Article.create!(content: "#{link['href']}",
+	if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "#{link['href']}",
 						views: 0,
 						article_type: "Sports",
 						title: "#{link.text}".squish,
@@ -209,13 +243,16 @@ espn_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
 
 reddit_links.each do |link| 
 	a = link.css("a.thumbnail")
 	c = a.at_css("img")['src']
 	b = link.css("a.title")
-	Article.create!(content: "#{a[0]['href']}",
+	if Article.find_by_title("#{b.text}".squish).nil?
+						Article.create!(content: "#{a[0]['href']}",
 						views: 0,
 						article_type: "Laugh",
 						title: "#{b.text}".squish,
@@ -223,10 +260,13 @@ reddit_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
 
 cnn_links.each do |link| 
-	Article.create!(content: "http://www.cnn.com#{link['href']}",
+	if Article.find_by_title("#{link.text}".squish).nil?
+						Article.create!(content: "http://www.cnn.com#{link['href']}",
 						views: 0,
 						article_type: "News",
 						title: "#{link.text}".squish,
@@ -234,4 +274,6 @@ cnn_links.each do |link|
 						rank: 0,
 						views: 0,
 						user_id:  1)
+	else
+	end
 end
