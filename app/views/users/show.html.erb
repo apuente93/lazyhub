@@ -24,29 +24,7 @@
             </div>
           </li>
         <% end %>
-        <%= will_paginate @articles, :param_name => 'articles_page',:inner_window => 1, :style => 'word-spacing:0px'%>
-      </ol>
-  </div>
-
-  <div class="span4">
-      <h3>Comments (<%= @comments.total_entries %>)</h3>
-      <ol class="user_comments">
-        <% @comments.each do |comment| %>
-          <li>
-            <span class="content"><%= comment.content %></span>
-            <span class="timestamp">
-            Posted <%= time_ago_in_words(comment.created_at) %> ago to <%= link_to Article.find_by_id(comment.article_id).title, Article.find_by_id(comment.article_id) %>.
-            </span>
-            <div>
-              <% if current_user?(comment.user) %>
-              <%= link_to "delete", comment, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: comment.content %>
-              <% end %>
-            </div>
-          </li>
-        <% end %>
-        <%= will_paginate @comments, :param_name => 'comments_page',:inner_window => 1 %>
+        <%= will_paginate @articles, :param_name => 'articles_page',:page_links => false %>
       </ol>
   </div>
 
@@ -68,7 +46,29 @@
             </div>
           </li>
         <% end %>
-        <%= will_paginate @favorite_articles, :param_name => 'favorite_articles_page',:inner_window => 1 %>
+        <%= will_paginate @favorite_articles, :param_name => 'favorite_articles_page',:page_links => false %>
+      </ol>
+  </div>
+
+  <div class="span4">
+      <h3>Comments (<%= @comments.total_entries %>)</h3>
+      <ol class="user_comments">
+        <% @comments.each do |comment| %>
+          <li>
+            <span class="content"><%= comment.content %></span>
+            <span class="timestamp">
+            Posted <%= time_ago_in_words(comment.created_at) %> ago to <%= link_to Article.find_by_id(comment.article_id).title, Article.find_by_id(comment.article_id) %>.
+            </span>
+            <div>
+              <% if current_user?(comment.user) %>
+              <%= link_to "delete", comment, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: comment.content %>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+        <%= will_paginate @comments, :param_name => 'comments_page',:page_links => false %>
       </ol>
   </div>
 </div>
