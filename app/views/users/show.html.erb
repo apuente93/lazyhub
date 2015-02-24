@@ -25,8 +25,8 @@
           </li>
         <% end %>
       </ol>
-      <%= will_paginate @articles, :param_name => 'articles_page',:inner_window => 1 %>
   </div>
+  <%= will_paginate @articles, :param_name => 'articles_page',:inner_window => 1 %>
 
   <div class="span4">
       <h3>Comments (<%= @comments.count %>)</h3>
