@@ -52,11 +52,11 @@ digg_links = digg_page.css("a.story-title-link")
 ebaum_page = Nokogiri::HTML(open("http://www.ebaumsworld.com/"))   
 ebaum_links = ebaum_page.css("div.featureDetails a")
 
-#admin = User.create!(username: "apuente",
- #                       email: "apuente@wisc.edu",
-  #                      password: "racine93!",
-   #                     password_confirmation: "racine93!",
-    #                    admin: true)
+admin = User.create!(username: "apuente",
+                        email: "apuente@wisc.edu",
+                        password: "racine93!",
+                        password_confirmation: "racine93!",
+                        admin: true)
 
 
 college_links.each do |link|
