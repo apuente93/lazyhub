@@ -82,8 +82,6 @@
 </div>
 </div>
 
-<div id = "pagination"><%= will_paginate @articles, :inner_window => 2 %></div>
-
 <% if signed_in? %>
 <div id = "new_article_button">
 <%= link_to 'New Article', new_article_path %>

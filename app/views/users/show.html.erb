@@ -6,7 +6,7 @@
       </h1>
   </div>
 <div class="row">
-  <div class="span6">
+  <div class="span4">
       <h3>Posted Articles (<%= @articles.count %>)</h3>
       <ol class="user_articles">
         <% @articles.each do |article| %>
@@ -28,7 +28,7 @@
       <%= will_paginate @articles, :param_name => 'articles_page',:inner_window => 2 %>
   </div>
 
-  <div class="span6">
+  <div class="span4">
       <h3>Comments (<%= @comments.count %>)</h3>
       <ol class="user_comments">
         <% @comments.each do |comment| %>
@@ -48,5 +48,27 @@
         <% end %>
       </ol>
       <%= will_paginate @comments, :param_name => 'comments_page',:inner_window => 1 %>
+  </div>
+
+  <div class="span4">
+      <h3>Favorite Articles (<%= @favorite_articles.count %>)</h3>
+      <ol class="user_favorites">
+        <% @favorite_articles.each do |favorite_article| %>
+          <li>
+            <span class="content"><%= link_to favorite_article.title, favorite_article.content %></span>
+            <span class="timestamp">
+            Liked <%= time_ago_in_words(favorite_article.created_at) %> ago.
+            </span>
+            <div>
+              <% if current_user?(favorite_article.user) %>
+              <%= link_to "delete", favorite_article, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: favorite_article.content %>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ol>
+      <%= will_paginate @favorite_articles, :param_name => 'favorite_articles_page',:inner_window => 1 %>
   </div>
 </div>

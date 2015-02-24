@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favorite_articles = @user.find_up_voted_items.paginate(page: params[:favorite_articles_page], :per_page => 20)
     @comments = @user.comments.paginate(page: params[:comments_page], :per_page => 20)
     @articles = @user.articles.paginate(page: params[:articles_page], :per_page => 20)
   end
