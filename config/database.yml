@@ -26,7 +26,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: lazyhub_development
+  database: lazyhub_production
   pool: 5
   username: apuente
   password:
