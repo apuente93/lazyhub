@@ -538,15 +538,26 @@ aside {
   padding-left:68px;
 }
 
+.center-block2
+{
+    margin-top: 10px;
+    margin-left: 150px;
+}
+
 .center-block
 {
-  display: block;
+    display: block;
     margin-left: auto;
-    margin-right: auto ;
+    margin-right: auto;
 }
 .user_icon
 {
   margin-top: 5px;
   padding-bottom: 15px;
   margin-left: 0px;
+}
+
+.hidden 
+{ 
+  display: none; 
 }

@@ -26,9 +26,10 @@ Lazyhub::Application.routes.draw do
   match '/sports',    to: 'static_pages#sports',    via: 'get'
   match '/random',    to: 'static_pages#random',    via: 'get'
   match '/about',    to: 'static_pages#about',    via: 'get'
-  match '/contact',    to: 'static_pages#contact',    via: 'get'
   match '/articles/:id/like(.:format)',    to: 'articles#upvote',    via: 'get'
   match '/articles/:id/dislike(.:format)',    to: 'articles#downvote',    via: 'get'
+  match '/contacts',     to: 'contacts#new',             via: 'get'
+  resources "contacts", only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
