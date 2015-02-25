@@ -72,8 +72,18 @@ Lazyhub::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  config.action_mailer.raise_delivery_errors = false
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox782110f976d142299d364a7d6f5de357.mailgun.org",
+    :user_name => "postmaster@sandbox782110f976d142299d364a7d6f5de357.mailgun.org",
+    :password => "b2c1d5349568e1fd1ee38fa19817fa1f"
+  }
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
