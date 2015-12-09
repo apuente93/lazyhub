@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150224111325) do
 
   # These are extensions that must be enabled in order to support this database
-  # enable_extension "plpgsql"
+  enable_extension "plpgsql"
 
   create_table "articles", force: true do |t|
     t.text     "content"

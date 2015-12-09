@@ -5,7 +5,7 @@
 
 # Example:
 #
-# set :output, "/path/to/my/cron_log.log"
+set :output, {:standard => 'cron.log'}
 #
 every 2.hours do
 	rake "webcrawl_proc:my_task"
