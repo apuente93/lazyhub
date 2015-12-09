@@ -21,12 +21,12 @@ test:
   database: lazyhub_test
   pool: 5
   username: apuente
-  password:
+  password: 
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: lazyhub_production
+  database: dekrdtjdkemlcg
   pool: 5
-  username: apuente
-  password:
+  username: kdyavdcfzfkfkl
+  password: 7ynWsO3_ol98atRJOW3eC506aw
