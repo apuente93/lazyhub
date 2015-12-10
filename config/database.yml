@@ -26,7 +26,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: lazyhub_production
+  database: dekrdtjdkemlcg
+  host: ec2-107-20-214-225.compute-1.amazonaws.com
   pool: 5
-  username: apuente
-  password:
+  username: kdyavdcfzfkfkl
+  password: 7ynWsO3_ol98atRJOW3eC506aw
