@@ -525,6 +525,10 @@ aside {
 
 .sign_up2
 {
+  padding-top:10px;
+  border:0 solid #fff; 
+  border-bottom-width:1px;
+  padding-bottom:10px;
   text-align: center;
 }
 
@@ -535,6 +539,8 @@ aside {
 
 #new_user_sign
 {
+  margin-top: -10px;
+  font-size: 1em;
   text-align: center;
 }
 
@@ -571,4 +577,21 @@ aside {
 .hidden 
 { 
   display: none; 
+}
+
+.sign_in_up_box
+{
+  overflow: hidden;
+  border-radius: 15px;
+  margin-left: 250px;
+  margin-right: 250px;
+  background-color: #EDEDED;
+}
+
+.forms {
+  margin-left:90px;
+}
+
+.grav_edit {
+  margin-left: 173px;
 }

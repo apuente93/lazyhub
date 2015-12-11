@@ -20,7 +20,7 @@ test:
   encoding: unicode
   database: lazyhub_test
   pool: 5
-  username: apuente
+  username: APuente
   password: 
 
 production:
