@@ -1,5 +1,4 @@
 class Article < ActiveRecord::Base
-	self.per_page = 20
 	before_create :randomize_id
 	acts_as_votable
 	belongs_to :user
