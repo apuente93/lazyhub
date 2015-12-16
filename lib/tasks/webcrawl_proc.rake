@@ -5,46 +5,59 @@ require 'open-uri'
 namespace :webcrawl_proc do
   desc "Webcrawls famous entertainment sites for data"
   task my_task: :environment do
-  	espn_page = Nokogiri::HTML(open("http://espn.go.com"))   
-espn_links = espn_page.css("div#content.container div.span-2.ts-right.mod-skirmish div.mod-container.mod-tabs.mod-no-footer.top-headlines div.mod-content ul.headlines li a")
+  	#Laugh
+reddit_page = Nokogiri::HTML(open("https://reddit.com/r/funny"))   
+reddit_links = reddit_page.css("div.thing")
+
+ebaum_page = Nokogiri::HTML(open("http://www.ebaumsworld.com/"))   
+ebaum_links = ebaum_page.css("div.featureDetails a")
+
+#Sports
+espn_page = Nokogiri::HTML(open("http://espn.go.com"))   
+espn_links = espn_page.css("div.container-wrapper div.container article.news-feed-item div.headlines ul li a")
 
 goal_page = Nokogiri::HTML(open("http://www.goal.com/en-us/"))   
 goal_links = goal_page.css("div.home-sidebar div.tab-content a")
 
-cnn_page = Nokogiri::HTML(open("http://cnn.com"))   
-cnn_links = cnn_page.css("section#homepage1-zone-1 h3.cd__headline a")
+#News
+#bbc_page = Nokogiri::HTML(open("http://bbc.com/news"))   
+#bbc_links = bbc_page.css("a.most-popular-list-item__link")
 
+cnn_page = Nokogiri::HTML(open("http://cnn.com"))   
+cnn_links = cnn_page.css("article.cd.cd--card.cd--article.cd div.cd__wrapper div.cd__content h3.cd__headline a")
+
+#Random
 gag_page = Nokogiri::HTML(open("http://9gag.com"))   
 gag_links = gag_page.css("section#list-view-2 article.badge-entry-container header h2.badge-item-title a")
 
 college_page = Nokogiri::HTML(open("http://www.collegehumor.com/"))   
-college_links = college_page.css("div.col-sm-6 a")
+college_links = college_page.css("div.col-sm-6.col-md-4 article div.caption h3.title a")
 
+#Game
 addicting_page = Nokogiri::HTML(open("http://www.addictinggames.com/hot-games/index.jsp"))   
 addicting_links = addicting_page.css("div.gameSlot")
 
 miniclip_page = Nokogiri::HTML(open("http://www.miniclip.com/games/genre-23/top-100/en/#t-n-H"))   
-miniclip_links = miniclip_page.css("a.game-icon")
+miniclip_links = miniclip_page.css("div#category-games-list a.game-icon")
 
+#Tech
 cnet_page = Nokogiri::HTML(open("http://www.cnet.com/news/"))   
-cnet_links = cnet_page.css("div.assetBody a")
+cnet_links = cnet_page.css("div.fdListingContainer div.fdListing div.row a.assetHed")
 
 pcmag_page = Nokogiri::HTML(open("http://www.pcmag.com/"))   
 pcmag_links = pcmag_page.css("div#news-stack a")
 
+#Social
 buzz_page = Nokogiri::HTML(open("http://www.buzzfeed.com/buzz"))   
-buzz_links = buzz_page.css("div.lede__body a.lede__link")
+buzz_links = buzz_page.css("ul.grid-posts li.grid-posts__item")
 
 ew_page = Nokogiri::HTML(open("http://www.ew.com/"))   
 ew_links = ew_page.css("section.block-top_stories a")
 
 digg_page = Nokogiri::HTML(open("http://digg.com/"))   
-digg_links = digg_page.css("a.story-title-link")
+digg_links = digg_page.css("div.grid-row div.grid-col-1 article.digg-story div.digg-story__content header.digg-story__header h2.digg-story__title a")
 
-ebaum_page = Nokogiri::HTML(open("http://www.ebaumsworld.com/"))   
-ebaum_links = ebaum_page.css("div.featureDetails a")
-
-college_links.each do |link|
+college_links[0..4].each do |link|
 	if "#{link.text}".squish.empty?
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
@@ -61,7 +74,7 @@ college_links.each do |link|
 	end
 end
 
-goal_links.each do |link|
+goal_links[0..4].each do |link|
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "http://www.goal.com#{link['href']}",
 						views: 0,
@@ -75,7 +88,7 @@ goal_links.each do |link|
 	end
 end
 
-pcmag_links.each do |link|
+pcmag_links[0..4].each do |link|
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "#{link['href']}",
 						views: 0,
@@ -89,7 +102,7 @@ pcmag_links.each do |link|
 	end
 end
 
-ebaum_links.each do |link|
+ebaum_links[0..4].each do |link|
 	if Article.find_by_title("#{link.text}".strip_heredoc.lstrip.lines.first.squish).nil?
 						Article.create!(content: "http://www.ebaumsworld.com#{link['href']}",
 						views: 0,
@@ -103,7 +116,7 @@ ebaum_links.each do |link|
 	end
 end
 
-miniclip_links.each do |link|
+miniclip_links[0..4].each do |link|
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "http://www.miniclip.com#{link['href']}",
 						views: 0,
@@ -117,7 +130,7 @@ miniclip_links.each do |link|
 	end
 end
 
-digg_links.each do |link|
+digg_links[0..4].each do |link|
 	if "#{link.text}".squish.empty?
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
@@ -134,7 +147,7 @@ digg_links.each do |link|
 	end
 end
 
-ew_links.each do |link|
+ew_links[0..4].each do |link|
 	if "#{link.text}".squish.empty?
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
@@ -151,7 +164,7 @@ ew_links.each do |link|
 	end
 end
 
-buzz_links.each do |link|
+buzz_links[0..4].each do |link|
 	if "#{link.text}".squish.empty?
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
@@ -168,7 +181,7 @@ buzz_links.each do |link|
 	end
 end
 
-addicting_links.each do |link|
+addicting_links[0..4].each do |link|
 	a = link.css("p a")
 	b = link.css("div.iconContainer a")
 	if Article.find_by_title("#{a.text}".squish).nil?
@@ -184,7 +197,7 @@ addicting_links.each do |link|
 	end
 end
 
-cnet_links.each do |link|
+cnet_links[0..4].each do |link|
 	a = link.css("h3")
 	if "#{a.text}".squish.empty?
 	else
@@ -202,7 +215,7 @@ cnet_links.each do |link|
 	end
 end
 
-gag_links.each do |link|
+gag_links[0..4].each do |link|
 	a = "#{link['href']}"
 	a.slice! "/gag/"
 	if Article.find_by_title("#{link.text}".squish).nil?
@@ -218,7 +231,7 @@ gag_links.each do |link|
 	end
 end
 
-espn_links.each do |link| 
+espn_links[0..4].each do |link| 
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "#{link['href']}",
 						views: 0,
@@ -232,24 +245,24 @@ espn_links.each do |link|
 	end
 end
 
-#reddit_links.each do |link| 
-	#a = link.css("a.thumbnail")
-	#c = a.at_css("img")['src']
-	#b = link.css("a.title")
-	#if Article.find_by_title("#{b.text}".squish).nil?
-	#					Article.create!(content: "#{a[0]['href']}",
-	#					views: 0,
-	#					article_type: "Laugh",
-	#					title: "#{b.text}".squish,
-	#					image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
-	#					rank: 0,
-	#					views: 0,
-	#					user_id:  1)
-	#else
-	#end
-#end
+reddit_links[0..4].each do |link| 
+	a = link.css("a.thumbnail")
+	c = a.at_css("img")['src']
+	b = link.css("a.title")
+	if Article.find_by_title("#{b.text}".squish).nil?
+						Article.create!(content: "#{a[0]['href']}",
+						views: 0,
+						article_type: "Laugh",
+						title: "#{b.text}".squish,
+						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
+						rank: 0,
+						views: 0,
+						user_id:  1)
+	else
+	end
+end
 
-cnn_links.each do |link| 
+cnn_links[0..4].each do |link| 
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "http://www.cnn.com#{link['href']}",
 						views: 0,
@@ -262,6 +275,21 @@ cnn_links.each do |link|
 	else
 	end
 end
+
+#bbc_links[0..4].each do |link| 
+#	puts "shit"
+#	if Article.find_by_title("#{link.text}".squish).nil?
+#						Article.create!(content: "http://www.bbc.com/news#{link['href']}",
+#						views: 0,
+#						article_type: "News",
+#						title: "#{link.text}".squish,
+#						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1450291789/NY-Times-Logo_uny7hl.png ",
+#						rank: 0,
+#						views: 0,
+#						user_id:  1)
+#	else
+#	end
+#end
   end
 
 end
