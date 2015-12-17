@@ -81,7 +81,7 @@
 </div>
 </div>
 
-<div id = "pagination"><%= will_paginate @articles, :inner_window => 2 %></div>
+<%= will_paginate @articles, id: "pagination", class: "digg_pagination" %>
 
 <% if signed_in? %>
 <div id = "new_article_button">

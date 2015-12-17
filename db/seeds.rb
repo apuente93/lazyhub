@@ -10,8 +10,8 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri' 	 	
 
-admin = User.create!(username: "apuente",
-                        email: "apuente@wisc.edu",
-                        password: "racine93!",
-                        password_confirmation: "racine93!",
-                        admin: true)
+	admin = User.create!(username: "apuente",
+	                        email: "apuente@wisc.edu",
+	                        password: "racine93!",
+	                        password_confirmation: "racine93!",
+	                        admin: true)
