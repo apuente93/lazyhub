@@ -246,18 +246,26 @@ input
 {
   font-size: 1.1em;
   font-weight: bold;
-  border: 2px solid black;
+}
+
+#article_type
+{
+  background-color: #bcbcbc;
+  height: 30px;
+  width: 73px;
+  font-size: 0.9em;
+  position: absolute;
+  margin-left: -1px;
 }
 
 #rank
 {
   background-color: #bcbcbc;
   height: 30px;
-  width: 30px;
+  width: 40px;
   font-size: 0.9em;
   position: absolute;
   margin-left: -1px;
-  margin-top: -1px;
 }
 
 #top_article_images
@@ -309,10 +317,6 @@ thead
     color: #ffffff;
   }
 }
-#top5_border
-{
-  border: 2px solid black;
-}
 .statistics
 {
   position: absolute;
@@ -334,6 +338,7 @@ thead
   font-weight: bold;
   list-style-type: none;
   margin-left: 0px;
+  margin-top: 5px;
 }
 #points_stats
 {
