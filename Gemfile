@@ -21,6 +21,7 @@ gem 'mail_form'
 gem 'simple_form'
 gem 'nokogiri'
 gem 'pg'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

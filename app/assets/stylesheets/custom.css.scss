@@ -33,7 +33,7 @@ textarea
   text-align: center;
 }
 
-#hero-unit
+.hero-unit
 {
   overflow: auto;
 }
@@ -97,8 +97,6 @@ p
 
 footer 
 {
-  margin-top: 125px;
-  padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999;
   clear: both;
@@ -114,12 +112,6 @@ footer a
   color: #555;
 }
 
-footer nav
-{
-  float: right;
-  margin-top: -52px;
-}
-
 footer a:hover 
 {
   color: #222;
@@ -127,6 +119,8 @@ footer a:hover
 
 footer ul 
 {
+  margin-left:-140px;
+  margin-right: 10px;
   float: right;
   list-style: none;
 }
@@ -235,7 +229,6 @@ input
 /* Content helper */
 .content_table
 {
-  overflow: auto;
   width: 580px;
   float: left;
   margin-left: -12px;
@@ -501,9 +494,7 @@ aside {
 #pagination
 {
     clear: both;
-    width: 400px;
-    margin-left: 420px;
-    margin-right: auto;
+    margin-left: 315px;
 }
 
 #about_banner
