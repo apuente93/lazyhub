@@ -33,11 +33,6 @@ textarea
   text-align: center;
 }
 
-.hero-unit
-{
-  overflow: auto;
-}
-
 .center h1 
 {
   font-size: 1.0em;
@@ -105,6 +100,9 @@ footer
 footer small
 {
   text-align: center;
+  p {
+    margin-left:20px;
+  }
 }
 
 footer a 
@@ -119,7 +117,7 @@ footer a:hover
 
 footer ul 
 {
-  margin-left:-140px;
+  margin-left:-170px;
   margin-right: 10px;
   float: right;
   list-style: none;
@@ -443,6 +441,10 @@ thead
     border-top: 1px solid #e8e8e8;
   }
 }
+.hero-unit {
+  margin-bottom:8px;
+  padding-bottom:10px;
+}
 
 .content {
   display: block;
@@ -494,7 +496,7 @@ aside {
 #pagination
 {
     clear: both;
-    margin-left: 315px;
+    margin-left: 296px;
 }
 
 #about_banner

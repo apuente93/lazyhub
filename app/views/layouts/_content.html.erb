@@ -71,13 +71,11 @@
   </tbody>
 </table>
 </div>
+<div id = "pagination" class = "digg_pagination"><%= will_paginate @articles %></div> 
 </div>
-
-<div class = "digg_pagination"><%= will_paginate @articles, id: "pagination" %></div>
 
 <% if signed_in? %>
 <div id = "new_article_button">
 <%= link_to 'New Article', new_article_path %>
 </div>
-
 <% end %>
