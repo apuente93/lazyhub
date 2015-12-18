@@ -24,7 +24,6 @@ class ArticlesController < ApplicationController
   def upvote
     @article = Article.find(params[:id])
     @article.liked_by current_user
-    @article.rank = @article.get_upvotes.size
     @article.save
 
     respond_to do |format|
@@ -37,7 +36,6 @@ class ArticlesController < ApplicationController
   def downvote
     @article = Article.find(params[:id])
     @article.downvote_from current_user
-    @article.rank = @article.get_upvotes.size
     @article.save
     
     respond_to do |format|
@@ -66,7 +64,6 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         @article.views = 0
-        @article.rank = 0
         @article.save
 
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }

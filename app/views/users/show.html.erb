@@ -1,13 +1,17 @@
 <% provide(:title,@user.username) %>
-  <div class="span12 user_icon">
-        <%= gravatar_for @user %>
-        <h1 id="username_title">
-        <%= @user.username %>
-      </h1>
-  </div>
+<div class="profile_box">
 <div class="row">
+   <div class="span12 forms">
+        <h3 class="sign_up2">
+        <%= @user.username %>
+      </h3>
+  </div>
+  <div class="span12 grav_edit2">
+        <%= gravatar_for @user%>
+  </div>
+  <div class= "user_stats_box">
   <div class="span4">
-      <h3>Posted Articles (<%= @articles.total_entries %>)</h3>
+      <h3 class="sign_up2">Posted Articles (<%= @articles.total_entries %>)</h3>
       <ol class="user_articles">
         <% @articles.each do |article| %>
           <li>
@@ -29,7 +33,7 @@
   </div>
 
   <div class="span4">
-      <h3>Favorite Articles (<%= @favorite_articles.total_entries %>)</h3>
+      <h3 class="sign_up2">Favorite Articles (<%= @favorite_articles.total_entries %>)</h3>
       <ol class="user_favorites">
         <% @favorite_articles.each do |favorite_article| %>
           <li>
@@ -51,7 +55,7 @@
   </div>
 
   <div class="span4">
-      <h3>Comments (<%= @comments.total_entries %>)</h3>
+      <h3 class="sign_up2">Comments (<%= @comments.total_entries %>)</h3>
       <ol class="user_comments">
         <% @comments.each do |comment| %>
           <li>
@@ -71,4 +75,6 @@
         <%= will_paginate @comments, :param_name => 'comments_page',:page_links => false %>
       </ol>
   </div>
+  </div>
+</div>
 </div>

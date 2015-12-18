@@ -512,12 +512,6 @@ aside {
   right: 0%;
 }
 
-#username_title
-{
-  float: left;
-  margin-top: 35px;
-}
-
 /* sign in and sign up */
 
 .sign_up
@@ -570,13 +564,6 @@ aside {
     margin-left: auto;
     margin-right: auto;
 }
-.user_icon
-{
-  margin-top: 5px;
-  padding-bottom: 15px;
-  margin-left: 0px;
-}
-
 .hidden 
 { 
   display: none; 
@@ -592,12 +579,26 @@ aside {
   background-color: #EDEDED;
 }
 
+.profile_box
+{
+  overflow: hidden;
+  border-radius: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  background-color: #EDEDED;
+}
+
 .forms {
   margin-left:90px;
 }
 
 .grav_edit {
   margin-left: 173px;
+}
+
+.grav_edit2 {
+  margin-left: 500px;
 }
 
 .about_banner {
@@ -688,3 +689,7 @@ border-radius: 2px 2px 2px 2px;
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+
+    .user_stats_box {
+      margin-left:70px;
+    }
