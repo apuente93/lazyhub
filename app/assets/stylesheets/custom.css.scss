@@ -255,7 +255,6 @@ input
   width: 73px;
   font-size: 0.9em;
   position: absolute;
-  margin-left: -1px;
 }
 
 #rank
@@ -265,7 +264,6 @@ input
   width: 40px;
   font-size: 0.9em;
   position: absolute;
-  margin-left: -1px;
 }
 
 #top_article_images
@@ -380,9 +378,21 @@ thead
   text-decoration: none;
   background-color: red;
 }
-#new_article_button
+.new_link_article_button
 {
-  clear: both;
+  line-height: 12px;
+  height:10px;
+  width:254px;
+  float: right;
+  margin-bottom:10px;
+}
+.new_text_article_button
+{
+  line-height: 12px;
+  height:10px;
+  width:254px;
+  float: right;
+  margin-bottom:10px;
 }
 .points
 {
@@ -693,3 +703,30 @@ border-radius: 2px 2px 2px 2px;
     .user_stats_box {
       margin-left:70px;
     }
+
+/* new buttons */
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary.raised {
+    box-shadow: 0 5px 0 0 #007299;
+}
