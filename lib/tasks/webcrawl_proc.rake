@@ -67,6 +67,7 @@ college_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://www.technobuffalo.com/wp-content/uploads/2012/03/College-Humor-logo-640x359.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 		else
 		end
@@ -81,6 +82,7 @@ goal_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://static.goal.com/280900/280936_heroa.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end
@@ -94,6 +96,7 @@ pcmag_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://www.getqardio.com/wp-content/uploads/2014/12/PCMag2.png",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end
@@ -107,6 +110,7 @@ ebaum_links[0..4].each do |link|
 						title: "#{link.text}".strip_heredoc.lstrip.lines.first.squish,
 						image_tag: "http://cdn.ebaumsworld.com/mediaFiles/picture/366483/82271662.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end
@@ -120,6 +124,7 @@ miniclip_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://www.lilireviews.com/wp-content/uploads/2013/08/Miniclip01-Logo1.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end
@@ -135,6 +140,7 @@ digg_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://img2.wikia.nocookie.net/__cb20121224123923/logopedia/images/3/32/Digg_Logo.png",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 		else
 		end
@@ -151,6 +157,7 @@ ew_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://www.majorcineplex.com/uploads/content/images/entertainment-weekly-logo.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 		else
 		end
@@ -167,6 +174,7 @@ buzz_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://s3-ak.buzzfed.com/static/images/global/buzzfeed.jpg?v=201502061701",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 		else
 		end
@@ -183,6 +191,7 @@ addicting_links[0..4].each do |link|
 						title: "#{a.text}".squish,
 						image_tag: "http://img2.wikia.nocookie.net/__cb20131228011010/logopedia/images/c/c2/Addicting_Games_974.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end
@@ -199,6 +208,7 @@ cnet_links[0..4].each do |link|
 						title: "#{a.text}".squish,
 						image_tag: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 		else
 		end
@@ -215,6 +225,7 @@ gag_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end
@@ -228,6 +239,7 @@ espn_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/espn_logo_cuaiiw.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end
@@ -244,6 +256,7 @@ reddit_links[0..4].each do |link|
 						title: "#{b.text}".squish,
 						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end
@@ -257,6 +270,7 @@ cnn_links[0..4].each do |link|
 						title: "#{link.text}".squish,
 						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/cnn_logo_psiwce.jpg",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end

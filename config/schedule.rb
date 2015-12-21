@@ -10,6 +10,10 @@
 every 2.hours do
 	rake "webcrawl_proc:my_task"
 end
+
+every 12.hours do
+	rake "daily_update:my_task"
+end
 #
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
