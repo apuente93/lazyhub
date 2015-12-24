@@ -7,11 +7,11 @@
 #
 # set :output, {:standard => 'cron.log'}
 #
-every 2.hours do
+every 1.hour do
 	rake "webcrawl_proc:my_task"
 end
 
-every 12.hours do
+every 7.hours do
 	rake "daily_update:my_task"
 end
 #
