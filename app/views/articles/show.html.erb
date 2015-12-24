@@ -26,7 +26,7 @@
 <div class="center">
     <% if @article.comments.any? %>
       <h3><%= link_to @article.title, views_article_path(@article.id), {:style=>'color: black;', :class => "article_type", method: :post} %></h3>
-      <ol class="comments">
+      <ol class="center comments">
         <%= render @comments %>
       </ol>
       <%= will_paginate @comments %>
