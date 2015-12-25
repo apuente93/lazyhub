@@ -233,7 +233,7 @@ end
 
 espn_links[0..4].each do |link| 
 	if Article.find_by_title("#{link.text}".squish).nil?
-						Article.create!(content: "#{link['href']}",
+						Article.create!(content: "http://www.espn.com#{link['href']}",
 						views: 0,
 						article_type: "Sports",
 						title: "#{link.text}".squish,
