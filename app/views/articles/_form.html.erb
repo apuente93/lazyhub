@@ -28,30 +28,7 @@
   </div>
   <div class= "field">
     <%= f.label :article_type %>
-    <% if URI(request.referer).path == '/game' %>
-    <%= f.select :article_type, options_for_select(%w[Game]) %>
-    <% end %>
-    <% if URI(request.referer).path == '/laugh' %>
-    <%= f.select :article_type, options_for_select(%w[Laugh]) %>
-    <% end %>
-    <% if URI(request.referer).path == '/news' %>
-    <%= f.select :article_type, options_for_select(%w[News]) %>
-    <% end %>
-    <% if URI(request.referer).path == '/tech' %>
-    <%= f.select :article_type, options_for_select(%w[Tech]) %>
-    <% end %>
-    <% if URI(request.referer).path == '/social' %>
-    <%= f.select :article_type, options_for_select(%w[Social]) %>
-    <% end %>
-    <% if URI(request.referer).path == '/sports' %>
-    <%= f.select :article_type, options_for_select(%w[Sports]) %>
-    <% end %>
-    <% if URI(request.referer).path == '/random' %>
-    <%= f.select :article_type, options_for_select(%w[Random]) %>
-    <% end %>
-    <% if URI(request.referer).path == '/' %>
     <%= f.select :article_type, options_for_select(%w[Laugh Game News Tech Social Sports Random]) %>
-    <% end %>
   </div>
   <div class="actions">
     <%= f.submit "Create New Article", class: "btn btn-md btn-primary center-block" %>
