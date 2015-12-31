@@ -49,7 +49,7 @@ pcmag_links = pcmag_page.css("div#news-stack a")
 
 #Social
 buzz_page = Nokogiri::HTML(open("http://www.buzzfeed.com/buzz"))   
-buzz_links = buzz_page.css("ul.grid-posts li.grid-posts__item")
+buzz_links = buzz_page.css("ol.list--numbered.list--unstyled li a.image-wrapper")
 
 ew_page = Nokogiri::HTML(open("http://www.ew.com/"))   
 ew_links = ew_page.css("section.block-top_stories a")

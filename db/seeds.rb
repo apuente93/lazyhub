@@ -10,12 +10,6 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri' 	 	
 
-	admin = User.create!(username: "apuente",
-	                        email: "apuente@wisc.edu",
-	                        password: "racine93!",
-	                        password_confirmation: "racine93!",
-	                        admin: true)
-
 #Laugh
 reddit_page = Nokogiri::HTML(open("https://reddit.com/r/funny"))   
 reddit_links = reddit_page.css("div.thing")
@@ -59,8 +53,8 @@ pcmag_page = Nokogiri::HTML(open("http://www.pcmag.com/"))
 pcmag_links = pcmag_page.css("div#news-stack a")
 
 #Social
-buzz_page = Nokogiri::HTML(open("http://www.buzzfeed.com/buzz"))   
-buzz_links = buzz_page.css("ul.grid-posts li.grid-posts__item")
+buzz_page = Nokogiri::HTML(open("http://www.buzzfeed.com"))   
+buzz_links = buzz_page.css("ol.list--numbered.list--unstyled li a.image-wrapper")
 
 ew_page = Nokogiri::HTML(open("http://www.ew.com/"))   
 ew_links = ew_page.css("section.block-top_stories a")
