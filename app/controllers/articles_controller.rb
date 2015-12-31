@@ -76,7 +76,7 @@ class ArticlesController < ApplicationController
           @article.image_tag = "http://static.goal.com/280900/280936_heroa.jpg"
         elsif @article.image_tag == '9gag'
           a = @article.content.partition('gag/').last
-          @article.image_tag = "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg"
+          @article.image_tag = "http://img-9gag-ftw.9cache.com/photo/#{a}.jpg"
         elsif @article.image_tag == 'Collegehumor'
           @article.image_tag = "http://www.technobuffalo.com/wp-content/uploads/2012/03/College-Humor-logo-640x359.jpg"
         elsif @article.image_tag == 'AddictingGames'
