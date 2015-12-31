@@ -18,17 +18,17 @@
     <%= f.label :title %>
     <%= f.text_area :title %>
   </div>
-  <div class="field">
-    <%= f.label :image_tag %>
-    <%= f.text_area :image_tag %>
+  <div class= "field">
+    <%= f.label "Source" %>
+    <%= f.select :image_tag, options_for_select(%w[CNN reddit Ebaumsworld ESPN GOAL 9gag Collegehumor AddictingGames Miniclip Cnet PCmag Buzzfeed EntertainmentWeekly digg]), :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :content %>
+    <%= f.label "Link" %>
     <%= f.text_area :content %>
   </div>
   <div class= "field">
     <%= f.label :article_type %>
-    <%= f.select :article_type, options_for_select(%w[Laugh Game News Tech Social Sports Random]) %>
+    <%= f.select :article_type, options_for_select(%w[Laugh Game News Tech Social Sports Random]), :include_blank => true %>
   </div>
   <div class="actions">
     <%= f.submit "Create New Article", class: "btn btn-md btn-primary center-block" %>

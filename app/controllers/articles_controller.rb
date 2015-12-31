@@ -64,6 +64,37 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         @article.views = 0
+        if @article.image_tag == 'CNN'
+          @article.image_tag = "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/cnn_logo_psiwce.jpg"
+        elsif @article.image_tag == 'reddit'
+          @article.image_tag = "http://famouslogos.net/images/reddit-logo.jpg"
+        elsif @article.image_tag == 'Ebaumsworld'
+          @article.image_tag = "http://cdn.ebaumsworld.com/mediaFiles/picture/366483/82271662.jpg"
+        elsif @article.image_tag == 'ESPN'
+          @article.image_tag = "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/espn_logo_cuaiiw.jpg"
+        elsif @article.image_tag == 'GOAL'
+          @article.image_tag = "http://static.goal.com/280900/280936_heroa.jpg"
+        elsif @article.image_tag == '9gag'
+          a = @article.content.partition('gag/').last
+          @article.image_tag = "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg"
+        elsif @article.image_tag == 'Collegehumor'
+          @article.image_tag = "http://www.technobuffalo.com/wp-content/uploads/2012/03/College-Humor-logo-640x359.jpg"
+        elsif @article.image_tag == 'AddictingGames'
+          @article.image_tag = "http://img2.wikia.nocookie.net/__cb20131228011010/logopedia/images/c/c2/Addicting_Games_974.jpg"
+        elsif @article.image_tag == 'Miniclip'
+          @article.image_tag = "http://www.lilireviews.com/wp-content/uploads/2013/08/Miniclip01-Logo1.jpg"
+        elsif @article.image_tag == 'Cnet'
+          @article.image_tag = "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg"
+        elsif @article.image_tag == 'PCmag'
+          @article.image_tag = "http://www.getqardio.com/wp-content/uploads/2014/12/PCMag2.png"
+        elsif @article.image_tag == 'Buzzfeed'
+          @article.image_tag = "http://s3-ak.buzzfed.com/static/images/global/buzzfeed.jpg?v=201502061701"
+        elsif @article.image_tag == 'EntertainmentWeekly'
+          @article.image_tag = "http://www.majorcineplex.com/uploads/content/images/entertainment-weekly-logo.jpg"
+        elsif @article.image_tag == 'digg'
+          @article.image_tag = "http://img2.wikia.nocookie.net/__cb20121224123923/logopedia/images/3/32/Digg_Logo.png"
+        else
+        end
         @article.save
 
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
@@ -115,7 +146,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :title, :image_tag, :rank, :user)
+      params.require(:article).permit(:upvote, :downvote, :content, :views, :article_type, :title, :image_tag, :user)
     end
 
     def user_params
