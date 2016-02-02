@@ -23,7 +23,8 @@ class ArticlesController < ApplicationController
 
   def upvote
     @article = Article.find(params[:id])
-    @article.liked_by current_user
+
+    @article.upvote_from current_user
     @article.save
 
     respond_to do |format|
@@ -35,6 +36,7 @@ class ArticlesController < ApplicationController
 
   def downvote
     @article = Article.find(params[:id])
+
     @article.downvote_from current_user
     @article.save
     
