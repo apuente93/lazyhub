@@ -2,17 +2,17 @@
 
 Welcome to Lazy Hub, the entertainment system for the web. We provide you with all of the entertainment that you need, for free! Think of us as your entertainment hub, where you can read, game or socialize whenever YOU want! Whether you just want to laugh a little, get some updates on world news, or just play some games, we have everything you would want. Meet some friends, by commenting on posts and creating your own posts. Feel free to share your knowledge and have some fun!
 
-## Requirements:
+## Requirements
 Follow this tutorial http://railsapps.github.io/installrubyonrails-mac.html until you have downloaded all the requirements
 
 Xcode Command Line Tools
-Homebrew
-GPG
-RVM
-RVM Gemsets
-Ruby
-Rails
-Postgres
+* Homebrew
+* GPG
+* RVM
+* RVM Gemsets
+* Ruby
+* Rails
+* Postgres
 
 Install Postgres after completing the tutorial by typing:
 ```{r, engine='bash', count_lines}
@@ -23,7 +23,7 @@ ln -sfv /usr/local/opt/postgresql/*plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
 
-## Running Locally:
+## Running Locally
 
 1. After installing all of the requirements with the aid of the tutorial, you can clone the project
 
@@ -49,5 +49,6 @@ rake db:seed
 rails s
 ```
 
-
-by [Alejandro Puente]
+## Copyright
+Copyright 2016 © Lazy Hub - All rights reserved
+by Alejandro Puente
