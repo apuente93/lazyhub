@@ -9,7 +9,7 @@ development:
   database: lazyhub_development
   host: localhost
   pool: 5
-  username: APuente
+  username: apuente
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -20,7 +20,7 @@ test:
   encoding: unicode
   database: lazyhub_test
   pool: 5
-  username: APuente
+  username: apuente
   password: 
 
 production:

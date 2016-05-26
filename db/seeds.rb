@@ -11,8 +11,8 @@ require 'nokogiri'
 require 'open-uri' 	 	
 
 #Laugh
-reddit_page = Nokogiri::HTML(open("https://reddit.com/r/funny"))   
-reddit_links = reddit_page.css("div.thing")
+#reddit_page = Nokogiri::HTML(open("https://reddit.com/r/funny"))   
+#reddit_links = reddit_page.css("div.thing")
 
 ebaum_page = Nokogiri::HTML(open("http://www.ebaumsworld.com/"))   
 ebaum_links = ebaum_page.css("div.featureDetails a")
@@ -53,8 +53,8 @@ pcmag_page = Nokogiri::HTML(open("http://www.pcmag.com/"))
 pcmag_links = pcmag_page.css("div#news-stack a")
 
 #Social
-buzz_page = Nokogiri::HTML(open("http://www.buzzfeed.com"))   
-buzz_links = buzz_page.css("ol.list--numbered.list--unstyled li a.image-wrapper")
+#buzz_page = Nokogiri::HTML(open("http://www.buzzfeed.com"))   
+#buzz_links = buzz_page.css("ol.list--numbered.list--unstyled li a.image-wrapper")
 
 ew_page = Nokogiri::HTML(open("http://www.ew.com/"))   
 ew_links = ew_page.css("section.block-top_stories a")
@@ -169,22 +169,22 @@ ew_links[0..4].each do |link|
 	end
 end
 
-buzz_links[0..4].each do |link|
-	if "#{link.text}".squish.empty?
-	else
-		if Article.find_by_title("#{link.text}".squish).nil?
-						Article.create!(content: "http://www.buzzfeed.com#{link['href']}",
-						views: 0,
-						article_type: "Social",
-						title: "#{link.text}".squish,
-						image_tag: "http://s3-ak.buzzfed.com/static/images/global/buzzfeed.jpg?v=201502061701",
-						views: 0,
-						isOld: false,
-						user_id:  1)
-		else
-		end
-	end
-end
+#buzz_links[0..4].each do |link|
+#	if "#{link.text}".squish.empty?
+#	else
+#		if Article.find_by_title("#{link.text}".squish).nil?
+#						Article.create!(content: "http://www.buzzfeed.com#{link['href']}",
+#						views: 0,
+#						article_type: "Social",
+#						title: "#{link.text}".squish,
+#						image_tag: "http://s3-ak.buzzfed.com/static/images/global/buzzfeed.jpg?v=201502061701",
+#						views: 0,
+#						isOld: false,
+#						user_id:  1)
+#		else
+#		end
+#	end
+#end
 
 addicting_links[0..4].each do |link|
 	a = link.css("p a")
@@ -250,22 +250,22 @@ espn_links[0..4].each do |link|
 	end
 end
 
-reddit_links[0..4].each do |link| 
-	a = link.css("a.thumbnail")
-	c = a.at_css("img")['src']
-	b = link.css("a.title")
-	if Article.find_by_title("#{b.text}".squish).nil?
-						Article.create!(content: "#{a[0]['href']}",
-						views: 0,
-						article_type: "Laugh",
-						title: "#{b.text}".squish,
-						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
-						views: 0,
-						isOld: false,
-						user_id:  1)
-	else
-	end
-end
+#reddit_links[0..4].each do |link| 
+#	a = link.css("a.thumbnail")
+#	c = a.at_css("img")['src']
+#	b = link.css("a.title")
+#	if Article.find_by_title("#{b.text}".squish).nil?
+#						Article.create!(content: "#{a[0]['href']}",
+#						views: 0,
+#						article_type: "Laugh",
+#						title: "#{b.text}".squish,
+#						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
+#						views: 0,
+#						isOld: false,
+#						user_id:  1)
+#	else
+#	end
+#end
 
 cnn_links[0..4].each do |link| 
 	if Article.find_by_title("#{link.text}".squish).nil?
