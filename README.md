@@ -5,7 +5,7 @@ Welcome to Lazy Hub, the entertainment system for the web. We provide you with a
 ## Requirements
 Follow this tutorial http://railsapps.github.io/installrubyonrails-mac.html until you have downloaded all the requirements
 
-Xcode Command Line Tools
+* Xcode Command Line Tools
 * Homebrew
 * GPG
 * RVM
@@ -50,5 +50,5 @@ rails s
 ```
 
 ## Copyright
-Copyright 2016 © Lazy Hub - All rights reserved
+Copyright 2016 © Lazy Hub - All rights reserved 
 by Alejandro Puente
