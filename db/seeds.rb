@@ -32,8 +32,8 @@ cnn_page = Nokogiri::HTML(open("http://cnn.com"))
 cnn_links = cnn_page.css("article.cd.cd--card.cd--article.cd div.cd__wrapper div.cd__content h3.cd__headline a")
 
 #Random
-gag_page = Nokogiri::HTML(open("http://9gag.com"))   
-gag_links = gag_page.css("section#list-view-2 article.badge-entry-container header h2.badge-item-title a")
+#gag_page = Nokogiri::HTML(open("http://9gag.com"))   
+#gag_links = gag_page.css("section#list-view-2 article.badge-entry-container header h2.badge-item-title a")
 
 college_page = Nokogiri::HTML(open("http://www.collegehumor.com/"))   
 college_links = college_page.css("div.col-sm-6.col-md-4 article div.caption h3.title a")
@@ -46,8 +46,8 @@ miniclip_page = Nokogiri::HTML(open("http://www.miniclip.com/games/genre-23/top-
 miniclip_links = miniclip_page.css("div#category-games-list a.game-icon")
 
 #Tech
-cnet_page = Nokogiri::HTML(open("http://www.cnet.com/news/"))   
-cnet_links = cnet_page.css("div.fdListingContainer div.fdListing div.row a.assetHed")
+#cnet_page = Nokogiri::HTML(open("http://www.cnet.com/news/"))   
+#cnet_links = cnet_page.css("div.fdListingContainer div.fdListing div.row a.assetHed")
 
 pcmag_page = Nokogiri::HTML(open("http://www.pcmag.com/"))   
 pcmag_links = pcmag_page.css("div#news-stack a")
@@ -202,39 +202,39 @@ addicting_links[0..4].each do |link|
 	end
 end
 
-cnet_links[0..4].each do |link|
-	a = link.css("h3")
-	if "#{a.text}".squish.empty?
-	else
-		if Article.find_by_title("#{a.text}".squish).nil?
-						Article.create!(content: "http://www.cnet.com#{link['href']}",
-						views: 0,
-						article_type: "Tech",
-						title: "#{a.text}".squish,
-						image_tag: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
-						views: 0,
-						isOld: false,
-						user_id:  1)
-		else
-		end
-	end
-end
+#cnet_links[0..4].each do |link|
+#	a = link.css("h3")
+#	if "#{a.text}".squish.empty?
+#	else
+#		if Article.find_by_title("#{a.text}".squish).nil?
+#						Article.create!(content: "http://www.cnet.com#{link['href']}",
+#						views: 0,
+#						article_type: "Tech",
+#						title: "#{a.text}".squish,
+#						image_tag: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
+#						views: 0,
+#						isOld: false,
+#						user_id:  1)
+#		else
+#		end
+#	end
+#end
 
-gag_links[0..4].each do |link|
-	a = "#{link['href']}"
-	a.slice! "/gag/"
-	if Article.find_by_title("#{link.text}".squish).nil?
-						Article.create!(content: "http://www.9gag.com#{link['href']}",
-						views: 0,
-						article_type: "Random",
-						title: "#{link.text}".squish,
-						image_tag: "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg",
-						views: 0,
-						isOld: false,
-						user_id:  1)
-	else
-	end
-end
+#gag_links[0..4].each do |link|
+#	a = "#{link['href']}"
+#	a.slice! "/gag/"
+#	if Article.find_by_title("#{link.text}".squish).nil?
+#						Article.create!(content: "http://www.9gag.com#{link['href']}",
+#						views: 0,
+#						article_type: "Random",
+#						title: "#{link.text}".squish,
+#						image_tag: "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg",
+#						views: 0,
+#						isOld: false,
+#						user_id:  1)
+#	else
+#	end
+#end
 
 espn_links[0..4].each do |link| 
 	if Article.find_by_title("#{link.text}".squish).nil?
