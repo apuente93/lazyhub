@@ -27,8 +27,8 @@ cnn_page = Nokogiri::HTML(open("http://cnn.com"))
 cnn_links = cnn_page.css("article.cd.cd--card.cd--article.cd div.cd__wrapper div.cd__content h3.cd__headline a")
 
 #Random
-gag_page = Nokogiri::HTML(open("http://9gag.com"))   
-gag_links = gag_page.css("section#list-view-2 article.badge-entry-container header h2.badge-item-title a")
+#gag_page = Nokogiri::HTML(open("http://9gag.com"))   
+#gag_links = gag_page.css("section#list-view-2 article.badge-entry-container header h2.badge-item-title a")
 
 college_page = Nokogiri::HTML(open("http://www.collegehumor.com/"))   
 college_links = college_page.css("div.col-sm-6.col-md-4 article div.caption h3.title a")
