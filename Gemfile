@@ -22,6 +22,7 @@ gem 'simple_form'
 gem 'nokogiri'
 gem 'pg'
 gem 'jquery-turbolinks'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
