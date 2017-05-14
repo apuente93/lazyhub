@@ -7,13 +7,15 @@
 #
 # set :output, {:standard => 'cron.log'}
 #
+env 'MAILTO', 'alejandropuentetelle@gmail.com'
+
 set :output, {:error => '~/Desktop/z.error.log', :standard => '~/Desktop/z.standard.log'}
 
-every 1.hour do
+every 1.hour, mailto: 'alejandropuentetelle@gmail.com' do
 	rake "webcrawl_proc:my_task"
 end
 
-every 7.hours do
+every 7.hours, mailto: 'alejandropuentetelle@gmail.com' do
 	rake "daily_update:my_task"
 end
 #

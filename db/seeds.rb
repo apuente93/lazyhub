@@ -63,7 +63,6 @@ digg_page = Nokogiri::HTML(open("http://digg.com/"))
 digg_links = digg_page.css("div.grid-row div.grid-col-1 article.digg-story div.digg-story__content header.digg-story__header h2.digg-story__title a")
 
 college_links[0..4].each do |link|
-	puts link
 	if "#{link.text}".squish.empty?
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
