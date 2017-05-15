@@ -11,7 +11,8 @@ require 'nokogiri'
 require 'open-uri'	
 
 namespace :webcrawl_proc do
-	task :webcrawl_proc => :environment do
+	task my_task: :environment do
+
 #Laugh
 reddit_page = Nokogiri::HTML(open("https://www.reddit.com/r/funny"))   
 reddit_links = reddit_page.css("div.thing")

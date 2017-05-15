@@ -67,7 +67,6 @@ college_links[0..4].each do |link|
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "http://www.collegehumor.com#{link['href']}",
-						views: 0,
 						article_type: "Random",
 						title: "#{link.text}".squish,
 						image_tag: "http://www.technobuffalo.com/wp-content/uploads/2012/03/College-Humor-logo-640x359.jpg",
@@ -82,7 +81,6 @@ end
 goal_links[0..4].each do |link|
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "http://www.goal.com#{link['href']}",
-						views: 0,
 						article_type: "Sports",
 						title: "#{link.text}".squish,
 						image_tag: "http://static.goal.com/280900/280936_heroa.jpg",
@@ -96,7 +94,6 @@ end
 pcmag_links[0..4].each do |link|
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "#{link['href']}",
-						views: 0,
 						article_type: "Tech",
 						title: "#{link.text}".squish,
 						image_tag: "http://www.getqardio.com/wp-content/uploads/2014/12/PCMag2.png",
@@ -112,7 +109,6 @@ ebaum_links[0..4].each do |link|
 	b = link.css("div.featureDescription")
 	if Article.find_by_title("#{link.text}".strip_heredoc.lstrip.lines.first.squish).nil?
 						Article.create!(content: "http://www.ebaumsworld.com#{a[0]['href']}",
-						views: 0,
 						article_type: "Laugh",
 						title: "#{link.text}".strip_heredoc.lstrip.lines.first.squish,
 						image_tag: "http://cdn.ebaumsworld.com/mediaFiles/picture/366483/82271662.jpg",
@@ -126,7 +122,6 @@ end
 miniclip_links[0..4].each do |link|
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "http://www.miniclip.com#{link['href']}",
-						views: 0,
 						article_type: "Game",
 						title: "#{link.text}".squish,
 						image_tag: "http://www.lilireviews.com/wp-content/uploads/2013/08/Miniclip01-Logo1.jpg",
@@ -142,7 +137,6 @@ digg_links[0..4].each do |link|
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "#{link['href']}",
-						views: 0,
 						article_type: "Social",
 						title: "#{link.text}".squish,
 						image_tag: "http://img2.wikia.nocookie.net/__cb20121224123923/logopedia/images/3/32/Digg_Logo.png",
@@ -159,7 +153,6 @@ ew_links[0..4].each do |link|
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "#{link['href']}",
-						views: 0,
 						article_type: "Social",
 						title: "#{link.text}".squish,
 						image_tag: "http://www.majorcineplex.com/uploads/content/images/entertainment-weekly-logo.jpg",
@@ -195,7 +188,6 @@ addicting_links[0..4].each do |link|
 	b = link.css("div.iconContainer a")
 	if Article.find_by_title("#{a.text}".squish).nil?
 						Article.create!(content: "http://www.addictinggames.com#{b[0]['href']}",
-						views: 0,
 						article_type: "Game",
 						title: "#{a.text}".squish,
 						image_tag: "http://img2.wikia.nocookie.net/__cb20131228011010/logopedia/images/c/c2/Addicting_Games_974.jpg",
@@ -212,7 +204,6 @@ cnet_links[0..4].each do |link|
 	else
 		if Article.find_by_title("#{a.text}".squish).nil?
 						Article.create!(content: "https://www.cnet.com#{link['href']}",
-						views: 0,
 						article_type: "Tech",
 						title: "#{a.text}".squish,
 						image_tag: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
@@ -229,7 +220,6 @@ gag_links[0..4].each do |link|
 	a.slice! "/gag/"
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "https://www.9gag.com#{link['href']}",
-						views: 0,
 						article_type: "Random",
 						title: "#{link.text}".squish,
 						image_tag: "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg",
@@ -243,7 +233,6 @@ end
 espn_links[0..4].each do |link| 
 	if Article.find_by_title("#{link.text}".squish).nil?
 						Article.create!(content: "#{link['href']}",
-						views: 0,
 						article_type: "Sports",
 						title: "#{link.text}".squish,
 						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/espn_logo_cuaiiw.jpg",
