@@ -29,7 +29,7 @@ bbc_page = Nokogiri::HTML(open("http://www.bbc.com/news"))
 bbc_links = bbc_page.css("div#news-top-stories-body-inline-international div.nw-c-top-stories--standard")
 
 #cnn_page = Nokogiri::HTML(open("http://cnn.com"))   
-#cnn_links = cnn_page.css("#homepage1-zone-1 div.l-container")
+#cnn_links = cnn_page.css("section#homepage2-zone-1")
 
 #Random
 gag_page = Nokogiri::HTML(open("https://9gag.com"))   
@@ -273,6 +273,7 @@ reddit_links[1..5].each do |link|
 end
 
 #cnn_links[0..4].each do |link| 
+#	puts link
 #	if Article.find_by_title("#{link.text}".squish).nil?
 #						Article.create!(content: "http://www.cnn.com#{link['href']}",
 #						views: 0,
