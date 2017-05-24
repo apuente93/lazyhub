@@ -25,8 +25,8 @@ goal_page = Nokogiri::HTML(open("http://www.goal.com/en-us/"))
 goal_links = goal_page.css("#homepage1-zone-1 div.l-container div div.column.zn__column--idx-2 ul")
 
 #News
-#bbc_page = Nokogiri::HTML(open("http://www.bbc.com/news"))   
-#bbc_links = bbc_page.css("#comp-most-popular div div ul li a.most-popular-list-item__link")
+bbc_page = Nokogiri::HTML(open("http://www.bbc.com/news"))   
+bbc_links = bbc_page.css("div#news-top-stories-body-inline-international div.nw-c-top-stories--standard")
 
 #cnn_page = Nokogiri::HTML(open("http://cnn.com"))   
 #cnn_links = cnn_page.css("#homepage1-zone-1 div.l-container")
@@ -305,15 +305,18 @@ youtube_links[0..4].each do |link|
 	end
 end
 
-#bbc_links[0..4].each do |link| 
-#	if Article.find_by_title("#{link.text}".squish).nil?
-#						Article.create!(content: "http://www.bbc.com/news#{link['href']}",
-#						views: 0,
-#						article_type: "News",
-#						title: "#{link.text}".squish,
-#						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1450291789/NY-Times-Logo_uny7hl.png ",
-#						views: 0,
-#						user_id:  1)
-#	else
-#	end
-# end
+aBbc = bbc_links[0].css("a.gs-c-promo-heading")
+bBbc = bbc_links[0].css("a.gs-c-promo-heading h3")
+
+for i in 0..4
+   if Article.find_by_title("#{bBbc[i].text}".squish).nil?
+						Article.create!(content: "http://www.bbc.com#{aBbc[i]['href']}",
+						views: 0,
+						article_type: "News",
+						title: "#{bBbc[i].text}".squish,
+						image_tag: "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
+						views: 0,
+						user_id:  1)
+	else
+	end
+end

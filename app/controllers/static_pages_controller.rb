@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
     @top_social = Article.where(article_type: "Social").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
     @top_sports = Article.where(article_type: "Sports").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
     @top_random = Article.where(article_type: "Random").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_articles = [@top_laugh, @top_game, @top_tech, @top_social, @top_sports]
+    @top_articles = [@top_laugh, @top_game, @top_news, @top_tech, @top_social, @top_sports, @top_random]
   end
 
   def laugh
