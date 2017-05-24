@@ -5,6 +5,7 @@
         var winLeft = (screen.width / 2) - (winWidth / 2);
         window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     }
+} 
 </script>
 <div id = "content">
 <table class = "content_table">
@@ -87,5 +88,6 @@
   </tbody>
 </table>
 </div>
-<div id = "pagination" class = "digg_pagination"><%= will_paginate @articles %></div> 
 </div>
+
+<div id = "pagination" class = "digg_pagination"><%= will_paginate @articles %></div> 

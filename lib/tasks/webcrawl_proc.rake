@@ -40,6 +40,9 @@ gag_links = gag_page.css("section#list-view-2 article.badge-entry-container head
 
 college_page = Nokogiri::HTML(open("http://www.collegehumor.com/"))   
 college_links = college_page.css("div.primary div.pods-media div.pod-wrapper")
+
+youtube_page = Nokogiri::HTML(open("https://www.youtube.com/feed/trending")) 
+youtube_links = youtube_page.css("div.yt-lockup-dismissable")
 	
 #Game
 addicting_page = Nokogiri::HTML(open("http://www.addictinggames.com/hot-games/index.jsp"))   
@@ -272,18 +275,37 @@ reddit_links[1..5].each do |link|
 	end
 end
 
-cnn_links[0..4].each do |link| 
-	puts link
-	if Article.find_by_title("#{link.text}".squish).nil?
-						Article.create!(content: "http://www.cnn.com#{link['href']}",
-						views: 0,
-						article_type: "News",
-						title: "#{a.text}".squish,
-						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/cnn_logo_psiwce.jpg",
+#cnn_links[0..4].each do |link| 
+#	puts link
+#	if Article.find_by_title("#{link.text}".squish).nil?
+#						Article.create!(content: "http://www.cnn.com#{link['href']}",
+#						views: 0,
+#						article_type: "News",
+#						title: "#{a.text}".squish,
+#						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/cnn_logo_psiwce.jpg",
+#						views: 0,
+#						isOld: false,
+#						user_id:  1)
+#	else
+#	end
+#end
+
+youtube_links[0..4].each do |link|
+	a = link.css("div.yt-lockup-thumbnail a")
+	b = link.css("div.yt-lockup-thumbnail div.video-thumb img")
+	d = link.at_css("div.yt-lockup-content a")['title']
+	if d.squish.empty?
+	else
+		if Article.find_by_title(d.squish).nil?
+						Article.create!(content: "https://www.youtube.com#{a[0]['href']}",
+						article_type: "Random",
+						title: d.squish,
+						image_tag: "#{b[0]['src']}",
 						views: 0,
 						isOld: false,
 						user_id:  1)
-	else
+		else
+		end
 	end
 end
 
