@@ -95,6 +95,8 @@ class ArticlesController < ApplicationController
           @article.image_tag = "http://www.majorcineplex.com/uploads/content/images/entertainment-weekly-logo.jpg"
         elsif @article.image_tag == 'digg'
           @article.image_tag = "http://img2.wikia.nocookie.net/__cb20121224123923/logopedia/images/3/32/Digg_Logo.png"
+        elsif @article.image_tag == 'YouTube'
+          @article.image_tag = "https://i.ytimg.com/vi/NlVpLOb_7c0/maxresdefault.jpg"
         else
         end
         @article.save
