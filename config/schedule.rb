@@ -15,7 +15,7 @@ every 1.hour, mailto: 'alejandropuentetelle@gmail.com' do
 	rake "webcrawl_proc:my_task"
 end
 
-every 7.hours, mailto: 'alejandropuentetelle@gmail.com' do
+every 4.hours, mailto: 'alejandropuentetelle@gmail.com' do
 	rake "daily_update:my_task"
 end
 #
