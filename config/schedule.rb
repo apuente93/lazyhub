@@ -11,7 +11,7 @@ env 'MAILTO', 'alejandropuentetelle@gmail.com'
 
 set :output, {:error => '~/Desktop/z.error.log', :standard => '~/Desktop/z.standard.log'}
 
-every 1.hour, mailto: 'alejandropuentetelle@gmail.com' do
+every 20.minutes, mailto: 'alejandropuentetelle@gmail.com' do
 	rake "webcrawl_proc:my_task"
 end
 
