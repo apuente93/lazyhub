@@ -14,6 +14,9 @@ require 'open-uri'
 reddit_page = Nokogiri::HTML(open("https://www.reddit.com/r/funny"))   
 reddit_links = reddit_page.css("div.thing")
 
+redditNews_page = Nokogiri::HTML(open("https://www.reddit.com/r/news"))
+redditNews_links = redditNews_page.css("div.entry.unvoted a.title")
+
 ebaum_page = Nokogiri::HTML(open("http://www.ebaumsworld.com"))   
 ebaum_links = ebaum_page.css("ul.homepageFeatures li.homepageFeature article")
 
@@ -28,6 +31,8 @@ goal_links = goal_page.css("#homepage1-zone-1 div.l-container div div.column.zn_
 bbc_page = Nokogiri::HTML(open("http://www.bbc.com/news"))   
 bbc_links = bbc_page.css("div#news-top-stories-body-inline-international div.nw-c-top-stories--standard")
 
+theGuardian_page = Nokogiri::HTML(open("https://www.theguardian.com/us"))
+theGuardian_links = theGuardian_page.css("div.fc-slice-wrapper ul.fc-sublinks") 
 #cnn_page = Nokogiri::HTML(open("http://cnn.com"))   
 #cnn_links = cnn_page.css("section#homepage2-zone-1")
 
@@ -272,6 +277,30 @@ reddit_links[1..5].each do |link|
 	end
 end
 
+redditNews_links[0..5].each do |link| 
+	puts "#{link.text}"
+	if Article.find_by_title("#{link.text}".squish).nil?
+		if "#{link['href']}".include? "/r/"
+			Article.create!(content: "https://www.reddit.com#{link['href']}",
+						article_type: "News",
+						title: "#{link.text}".squish,
+						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
+						views: 0,
+						isOld: false,
+						user_id:  1)
+		else
+			Article.create!(content: "#{link['href']}",
+						article_type: "News",
+						title: "#{link.text}".squish,
+						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
+						views: 0,
+						isOld: false,
+						user_id:  1)
+		end
+	else
+	end
+end
+
 #cnn_links[0..4].each do |link| 
 #	puts link
 #	if Article.find_by_title("#{link.text}".squish).nil?
@@ -311,12 +340,26 @@ bBbc = bbc_links[0].css("a.gs-c-promo-heading h3")
 
 for i in 0..4
    if Article.find_by_title("#{bBbc[i].text}".squish).nil?
-						Article.create!(content: "http://www.bbc.com#{aBbc[i]['href']}",
+						Article.create!(content: "aBbc[i]['href']}",
 						views: 0,
 						article_type: "News",
-						title: "#{bBbc[i].text}".squish,
+						title: "#{aBbc[i].text}".squish,
 						image_tag: "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
 						views: 0,
+						user_id:  1)
+	else
+	end
+end
+
+theGuardian_links[0..4].each do |link|
+	a = link.css("a")
+	if Article.find_by_title("#{link.text}".squish).nil?
+			Article.create!(content: "#{a[0]['href']}",
+ 						article_type: "News",
+						title: "#{link.text}".squish,
+						image_tag: "http://fontslogo.com/wp-content/uploads/2013/03/The-Guardian-Logo-Font.jpg",
+						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
 	end

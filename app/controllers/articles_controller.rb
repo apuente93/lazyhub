@@ -99,6 +99,8 @@ class ArticlesController < ApplicationController
           @article.image_tag = "https://i.ytimg.com/vi/NlVpLOb_7c0/maxresdefault.jpg"
         elsif @article.image_tag == 'BBC News'
           @article.image_tag = "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1"
+        elsif @article.image_tag == 'theguardian'
+          @article.image_tag = "http://logos-download.com/wp-content/uploads/2016/05/The_Guardian_logo_blue.jpg"
         else
         end
         @article.save
