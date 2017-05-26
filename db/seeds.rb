@@ -82,6 +82,7 @@ college_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 		else
+			Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 		end
 	end
 end
@@ -96,6 +97,7 @@ goal_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -109,6 +111,7 @@ pcmag_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -124,6 +127,7 @@ ebaum_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{link.text}".strip_heredoc.lstrip.lines.first.squish).update(isOld: 'false')
 	end
 end
 
@@ -137,6 +141,7 @@ miniclip_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -152,6 +157,7 @@ digg_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 		else
+			Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 		end
 	end
 end
@@ -168,6 +174,7 @@ ew_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 		else
+			Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 		end
 	end
 end
@@ -203,6 +210,7 @@ addicting_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{a.text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -219,6 +227,7 @@ cnet_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 		else
+			Article.find_by_title("#{a.text}".squish).update(isOld: 'false')
 		end
 	end
 end
@@ -235,6 +244,7 @@ gag_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -248,6 +258,7 @@ espn_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -274,6 +285,7 @@ reddit_links[1..5].each do |link|
 						user_id:  1)
 		end
 	else
+		Article.find_by_title("#{b.text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -297,6 +309,7 @@ redditNews_links[0..1].each do |link|
 						user_id:  1)
 		end
 	else
+		Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -330,6 +343,7 @@ youtube_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 		else
+			Article.find_by_title(d.squish).update(isOld: 'false')
 		end
 	end
 end
@@ -345,8 +359,10 @@ for i in 0..4
 						title: "#{aBbc[i].text}".squish,
 						image_tag: "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
 						views: 0,
+						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{bBbc[i].text}".squish).update(isOld: 'false')
 	end
 end
 
@@ -361,5 +377,6 @@ theGuardian_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
+		Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
 	end
 end
