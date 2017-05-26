@@ -34,8 +34,8 @@ Lazyhub::Application.configure do
     :authentication => :plain,
     :address => "smtp.mailgun.org",
     :port => 587,
-    :domain => "sandbox782110f976d142299d364a7d6f5de357.mailgun.org",
-    :user_name => "postmaster@sandbox782110f976d142299d364a7d6f5de357.mailgun.org",
-    :password => "b2c1d5349568e1fd1ee38fa19817fa1f"
+    :domain => "lazyhub.mailgun.org",
+    :user_name => "postmaster@lazyhub.com",
+    :password => "racine93!"
   }
 end

@@ -9,7 +9,7 @@ class Contact < MailForm::Base
   def headers
     {
       :subject => "LazyHub: Contact",
-      :to => "postmaster@sandbox782110f976d142299d364a7d6f5de357.mailgun.org",
+      :to => "postmaster@lazyhub.com",
       :from => %("#{name}" <#{email}>)
     }
   end

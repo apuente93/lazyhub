@@ -1,5 +1,5 @@
 class ModelMailer < ActionMailer::Base
-  default from: "me@sandboxd62399d82de64044a3631f43e5612050.mailgun.org"
+  default from: "mailgun@lazyhub.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -10,4 +10,9 @@ class ModelMailer < ActionMailer::Base
     @subscription = subscription
     mail to: @subscription.email, subject: "Subscription: Success!"
   end
+
+  def new_record_notification(record)
+  @record = record
+  mail to: "mailgun@lazyhub.com", subject: "Success! You did it."
+end
 end
