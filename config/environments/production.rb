@@ -82,8 +82,8 @@ Lazyhub::Application.configure do
     :address => "smtp.mailgun.org",
     :port => 587,
     :domain => "lazyhub.mailgun.org",
-    :user_name => "https://api.mailgun.net/v3/lazyhub.com",
-    :password => "key-bbf4074a03a78e580cb3079c251d4584"
+    :user_name => "postmaster@lazyhub.com",
+    :password => "racine93!"
   }
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
