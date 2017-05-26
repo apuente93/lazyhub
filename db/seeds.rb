@@ -25,7 +25,7 @@ espn_page = Nokogiri::HTML(open("http://espn.go.com"))
 espn_links = espn_page.css("div section.col-three div.headlineStack section.headlineStack__listContainer ul.headlineStack__list li a")
 
 goal_page = Nokogiri::HTML(open("http://www.goal.com/en-us/"))   
-goal_links = goal_page.css("#homepage1-zone-1 div.l-container div div.column.zn__column--idx-2 ul")
+goal_links = goal_page.css("div.home-sidebar div.tab-content a")
 
 #News
 bbc_page = Nokogiri::HTML(open("http://www.bbc.com/news"))   
