@@ -24,6 +24,10 @@ class ArticlesController < ApplicationController
   def upvote
     @article = Article.find(params[:id])
 
+    if current_user.admin?
+      @article.vote_by voter: current_user, :duplicate => true
+    end
+
     @article.upvote_from current_user
     @article.save
 
@@ -35,6 +39,10 @@ class ArticlesController < ApplicationController
   end
 
   def downvote
+    if current_user.admin?
+      @article.vote_by voter: current_user, :duplicate => true
+    end
+    
     @article = Article.find(params[:id])
 
     @article.downvote_from current_user
