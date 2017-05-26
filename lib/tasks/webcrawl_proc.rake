@@ -275,7 +275,7 @@ reddit_links[1..5].each do |link|
 	end
 end
 
-redditNews_links[0..5].each do |link| 
+redditNews_links[0..1].each do |link| 
 	puts "#{link.text}"
 	if Article.find_by_title("#{link.text}".squish).nil?
 		if "#{link['href']}".include? "/r/"
@@ -338,7 +338,7 @@ bBbc = bbc_links[0].css("a.gs-c-promo-heading h3")
 
 for i in 0..4
    if Article.find_by_title("#{bBbc[i].text}".squish).nil?
-						Article.create!(content: "aBbc[i]['href']}",
+						Article.create!(content: "http://www.bbc.com#{aBbc[i]['href']}",
 						views: 0,
 						article_type: "News",
 						title: "#{aBbc[i].text}".squish,
