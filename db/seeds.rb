@@ -71,14 +71,15 @@ digg_page = Nokogiri::HTML(open("http://digg.com/"))
 digg_links = digg_page.css("div.grid-row div.grid-col-1 article.digg-story div.digg-story__content header.digg-story__header h2.digg-story__title a")
 
 college_links[0..4].each do |link|
+	a = link.css("a")
 	if "#{link.text}".squish.empty?
 	else
 		if Article.find_by_title("#{link.text}".squish).nil?
-						Article.create!(content: "http://www.collegehumor.com#{link['href']}",
+						Article.create!(content: "http://www.collegehumor.com#{a[0]['href']}",
 						article_type: "Random",
-						title: "#{link.text}".squish,
+						title: "#{a.text}".squish,
 						image_tag: "http://www.technobuffalo.com/wp-content/uploads/2012/03/College-Humor-logo-640x359.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		else
@@ -93,7 +94,7 @@ goal_links[0..4].each do |link|
 						article_type: "Sports",
 						title: "#{link.text}".squish,
 						image_tag: "http://static.goal.com/280900/280936_heroa.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
@@ -107,7 +108,7 @@ pcmag_links[0..4].each do |link|
 						article_type: "Tech",
 						title: "#{link.text}".squish,
 						image_tag: "http://www.getqardio.com/wp-content/uploads/2014/12/PCMag2.png",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
@@ -123,7 +124,7 @@ ebaum_links[0..4].each do |link|
 						article_type: "Laugh",
 						title: "#{link.text}".strip_heredoc.lstrip.lines.first.squish,
 						image_tag: "http://cdn.ebaumsworld.com/mediaFiles/picture/366483/82271662.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
@@ -137,7 +138,7 @@ miniclip_links[0..4].each do |link|
 						article_type: "Game",
 						title: "#{link.text}".squish,
 						image_tag: "http://www.lilireviews.com/wp-content/uploads/2013/08/Miniclip01-Logo1.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
@@ -153,7 +154,7 @@ digg_links[0..4].each do |link|
 						article_type: "Social",
 						title: "#{link.text}".squish,
 						image_tag: "http://img2.wikia.nocookie.net/__cb20121224123923/logopedia/images/3/32/Digg_Logo.png",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		else
@@ -170,7 +171,7 @@ ew_links[0..4].each do |link|
 						article_type: "Social",
 						title: "#{link.text}".squish,
 						image_tag: "http://www.majorcineplex.com/uploads/content/images/entertainment-weekly-logo.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		else
@@ -206,7 +207,7 @@ addicting_links[0..4].each do |link|
 						article_type: "Game",
 						title: "#{a.text}".squish,
 						image_tag: "http://img2.wikia.nocookie.net/__cb20131228011010/logopedia/images/c/c2/Addicting_Games_974.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
@@ -223,7 +224,7 @@ cnet_links[0..4].each do |link|
 						article_type: "Tech",
 						title: "#{a.text}".squish,
 						image_tag: "https://rimblogs.files.wordpress.com/2014/12/cnet-500x237.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		else
@@ -240,7 +241,7 @@ gag_links[0..4].each do |link|
 						article_type: "Random",
 						title: "#{link.text}".squish,
 						image_tag: "http://img-9gag-ftw.9cache.com/photo/#{a}_460s.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
@@ -254,7 +255,7 @@ espn_links[0..4].each do |link|
 						article_type: "Sports",
 						title: "#{link.text}".squish,
 						image_tag: "http://res.cloudinary.com/www-lazyhub-com/image/upload/v1424383479/espn_logo_cuaiiw.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
@@ -272,7 +273,7 @@ reddit_links[1..5].each do |link|
 						article_type: "Laugh",
 						title: "#{b.text}".squish,
 						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		else
@@ -280,7 +281,7 @@ reddit_links[1..5].each do |link|
 						article_type: "Laugh",
 						title: "#{b.text}".squish,
 						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		end
@@ -296,7 +297,7 @@ redditNews_links[0..1].each do |link|
 						article_type: "News",
 						title: "#{link.text}".squish,
 						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		else
@@ -304,7 +305,7 @@ redditNews_links[0..1].each do |link|
 						article_type: "News",
 						title: "#{link.text}".squish,
 						image_tag: "http://famouslogos.net/images/reddit-logo.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		end
@@ -339,7 +340,7 @@ youtube_links[0..4].each do |link|
 						article_type: "Random",
 						title: d.squish,
 						image_tag: "#{b[0]['src']}",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 		else
@@ -358,7 +359,7 @@ for i in 0..4
 						article_type: "News",
 						title: "#{aBbc[i].text}".squish,
 						image_tag: "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
@@ -373,7 +374,7 @@ theGuardian_links[0..4].each do |link|
  						article_type: "News",
 						title: "#{link.text}".squish,
 						image_tag: "http://fontslogo.com/wp-content/uploads/2013/03/The-Guardian-Logo-Font.jpg",
-						views: 0,
+						views: 1 + rand(1324),
 						isOld: false,
 						user_id:  1)
 	else
