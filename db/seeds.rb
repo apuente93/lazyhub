@@ -142,7 +142,7 @@ miniclip_links[0..4].each do |link|
 						isOld: false,
 						user_id:  1)
 	else
-		Article.find_by_title("#{link.text}".squish).update(isOld: 'false')
+		
 	end
 end
 
