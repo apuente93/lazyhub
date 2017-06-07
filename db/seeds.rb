@@ -349,23 +349,23 @@ youtube_links[0..4].each do |link|
 	end
 end
 
-aBbc = bbc_links[0].css("a.gs-c-promo-heading")
-bBbc = bbc_links[0].css("a.gs-c-promo-heading h3")
+#aBbc = bbc_links[0].css("a.gs-c-promo-heading")
+#bBbc = bbc_links[0].css("a.gs-c-promo-heading h3")
 
-for i in 0..4
-   if Article.find_by_title("#{bBbc[i].text}".squish).nil?
-						Article.create!(content: "http://www.bbc.com#{aBbc[i]['href']}",
-						views: 0,
-						article_type: "News",
-						title: "#{aBbc[i].text}".squish,
-						image_tag: "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
-						views: 1 + rand(1324),
-						isOld: false,
-						user_id:  1)
-	else
-		Article.find_by_title("#{bBbc[i].text}".squish).update(isOld: 'false')
-	end
-end
+#for i in 0..4
+ #  if Article.find_by_title("#{bBbc[i].text}".squish).nil?
+#						Article.create!(content: "http://www.bbc.com#{aBbc[i]['href']}",
+#						views: 0,
+#						article_type: "News",
+#						title: "#{aBbc[i].text}".squish,
+#						image_tag: "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
+#						views: 1 + rand(1324),
+#						isOld: false,
+#						user_id:  1)
+#	else
+#		Article.find_by_title("#{bBbc[i].text}".squish).update(isOld: 'false')
+#	end
+#end
 
 theGuardian_links[0..4].each do |link|
 	a = link.css("a")
