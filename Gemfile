@@ -23,6 +23,7 @@ gem 'nokogiri'
 gem 'pg'
 gem 'jquery-turbolinks'
 gem 'turbolinks', '~> 5.0.0'
+gem 'puma'
 gem 'whenever', require: false
 
 group :development, :test do
