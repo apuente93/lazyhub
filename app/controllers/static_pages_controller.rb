@@ -1,8 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-    @subscription = Subscription.new
-    @page = "home"
-    @articles = Article.all.sort_by! { |a| [a.isOld ? 1 : 0, -a.get_upvotes.size, -a.views, -a.created_at.to_i, -a.id]}.paginate(:page => params[:page], :per_page => 20)
   end
 
   def laugh
