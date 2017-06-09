@@ -67,24 +67,6 @@
       <td id = "top5_title">Most popular</td>
     </tr>
   </thead>
-  <tbody>
-    <% @count = 0 %>
-    <% @top_articles.each do |article| %>
-      <tr id = "top5_border">
-        <td>
-            <ul id = "content_column2">
-              <% if @page == 'home' %>
-                <li id = "article_type"><%= article.article_type %></li> 
-              <% else %>
-                <% @count += 1 %>
-                <li id = "rank"><%= @count %></li>
-              <% end %>
-              <li id = "top_article_images"><%= link_to fetch_image_tag(article.image_tag, :width => 300, :height => 150, :crop => :fill), views_article_path(article.id), target: :_blank, method: :post %></li>
-            </ul>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
 </table>
 </div>
 </div>

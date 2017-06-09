@@ -3,14 +3,6 @@ class StaticPagesController < ApplicationController
     @subscription = Subscription.new
     @page = "home"
     @articles = Article.all.sort_by! { |a| [a.isOld ? 1 : 0, -a.get_upvotes.size, -a.views, -a.created_at.to_i, -a.id]}.paginate(:page => params[:page], :per_page => 20)
-    @top_laugh = Article.where(article_type: "Laugh").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_game = Article.where(article_type: "Game").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_news = Article.where(article_type: "News").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_tech = Article.where(article_type: "Tech").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_social = Article.where(article_type: "Social").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_sports = Article.where(article_type: "Sports").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_random = Article.where(article_type: "Random").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_articles = [@top_laugh, @top_game, @top_news, @top_tech, @top_social, @top_sports, @top_random]
   end
 
   def laugh

@@ -56,6 +56,8 @@ Lazyhub::Application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
+
+  #allow caching so images are just slow loading once
   config.action_controller.perform_caching = true
 
   # Precompile additional assets.
