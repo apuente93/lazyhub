@@ -3,15 +3,16 @@ class StaticPagesController < ApplicationController
   def home
     @subscription = Subscription.new
     @page = "home"
-    @articles = Article.all.paginate(:page => params[:page], :per_page => 20)
+    @articles2 = Article.all
+    @articles = @articles2.paginate(:page => params[:page], :per_page => 20)
 
-    @top_laugh = @articles.where(article_type: "Laugh")[0]
-    @top_game = @articles.where(article_type: "Game")[0]
-    @top_news = @articles.where(article_type: "News")[0]
-    @top_tech = @articles.where(article_type: "Tech")[0]
-    @top_social = @articles.where(article_type: "Social")[0]
-    @top_sports = @articles.where(article_type: "Sports")[0]
-    @top_random = @articles.where(article_type: "Random")[0]
+    @top_laugh = @articles2.where(article_type: "Laugh")[0]
+    @top_game = @articles2.where(article_type: "Game")[0]
+    @top_news = @articles2.where(article_type: "News")[0]
+    @top_tech = @articles2.where(article_type: "Tech")[0]
+    @top_social = @articles2.where(article_type: "Social")[0]
+    @top_sports = @articles2.where(article_type: "Sports")[0]
+    @top_random = @articles2.where(article_type: "Random")[0]
     @top_articles = [@top_laugh, @top_game, @top_news, @top_tech, @top_social, @top_sports, @top_random]
   end
 
