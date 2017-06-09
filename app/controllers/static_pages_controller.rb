@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   def home
     @subscription = Subscription.new
     @page = "home"
-    @articles = Article.all
+    @articles = Article.all.paginate(:page => params[:page], :per_page => 20)
 
     @top_laugh = @articles.where(article_type: "Laugh").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
     @top_game = @articles.where(article_type: "Game").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
