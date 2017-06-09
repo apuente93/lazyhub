@@ -12,6 +12,9 @@
   <body>
     <div class="container">
       <%= render 'layouts/header' %>
+      <a href="https://twitter.com/Lazy_Hub" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @Lazy_Hub</a>
+      <script src="//platform.twitter.com/widgets.js"></script>
+      <iframe class = "fb-like" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Flazyhubs&amp;width=300&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>

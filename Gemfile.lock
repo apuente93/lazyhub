@@ -83,7 +83,7 @@ GEM
     hike (1.2.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.8.1)
+    i18n (0.8.4)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
     jquery-rails (3.0.4)
@@ -184,8 +184,9 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.1.1)
-      coffee-rails
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.3)
     tzinfo (0.3.53)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -229,7 +230,7 @@ DEPENDENCIES
   simple_form
   sprockets (= 2.11.0)
   sprockets_better_errors
-  turbolinks (= 1.1.1)
+  turbolinks (~> 5.0.0)
   uglifier (= 2.1.1)
   whenever
   will_paginate (= 3.0.5)
