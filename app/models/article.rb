@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
 	validates :content, presence: true
 	validates :article_type, presence: true
     validates :user_id, presence: true
-    default_scope -> { order('"isOld" ASC', 'views DESC', 'created_at DESC') }
+    default_scope -> { order('"isOld" ASC', 'cached_votes_total DESC', 'views DESC', 'created_at DESC') }
 
 	def feed
     	# This is preliminary. See "Following users" for the full implementation.
