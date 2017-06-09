@@ -3,16 +3,15 @@ class StaticPagesController < ApplicationController
   def home
     @subscription = Subscription.new
     @page = "home"
-    @articles1 = Article.all
-    @articles = @articles1.sort_by! { |a| [a.isOld ? 1 : 0, -a.get_upvotes.size, -a.views, -a.created_at.to_i, -a.id]}.paginate(:page => params[:page], :per_page => 20)
+    @articles = Article.all
 
-    @top_laugh = @articles1.where(article_type: "Laugh").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_game = @articles1.where(article_type: "Game").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_news = @articles1.where(article_type: "News").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_tech = @articles1.where(article_type: "Tech").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_social = @articles1.where(article_type: "Social").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_sports = @articles1.where(article_type: "Sports").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
-    @top_random = @articles1.where(article_type: "Random").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
+    @top_laugh = @articles.where(article_type: "Laugh").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
+    @top_game = @articles.where(article_type: "Game").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
+    @top_news = @articles.where(article_type: "News").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
+    @top_tech = @articles.where(article_type: "Tech").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
+    @top_social = @articles.where(article_type: "Social").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
+    @top_sports = @articles.where(article_type: "Sports").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
+    @top_random = @articles.where(article_type: "Random").sort_by! { |a| [-a.get_upvotes.size, -a.views, -a.id]}[0]
     @top_articles = [@top_laugh, @top_game, @top_news, @top_tech, @top_social, @top_sports, @top_random]
   end
 
