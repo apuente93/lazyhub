@@ -16,7 +16,3 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-$(document).ready(function () {
-        $("html, body").animate({
-            scrollTop: 0
-});
