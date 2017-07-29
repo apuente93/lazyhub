@@ -57,7 +57,7 @@ miniclip_links = miniclip_page.css("div#category-games-list a.game-icon")
 cnet_page = Nokogiri::HTML(open("https://www.cnet.com/news/"))   
 cnet_links = cnet_page.css("div.fdListingContainer div.fdListing div.row a.assetHed")
 
-pcmag_page = Nokogiri::HTML(open("http://www.pcmag.com/"))   
+pcmag_page = Nokogiri::HTML(open("https://www.pcmag.com/"))   
 pcmag_links = pcmag_page.css("div#news-stack a")
 
 #Social
