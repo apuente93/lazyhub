@@ -10,7 +10,7 @@
         <%= gravatar_for @user%>
   </div>
   <div class= "user_stats_box">
-  <div class="span4">
+  <!--<div class="span4">
       <h3 class="sign_up2">Posted Articles (<%= @articles.total_entries %>)</h3>
       <ol class="user_articles">
         <% @articles.each do |article| %>
@@ -30,9 +30,9 @@
         <% end %>
         <%= will_paginate @articles, :param_name => 'articles_page',:page_links => false %>
       </ol>
-  </div>
+  </div> -->
 
-  <div class="span4">
+  <div class="span6">
       <h3 class="sign_up2">Favorite Articles (<%= @favorite_articles.total_entries %>)</h3>
       <ol class="user_favorites">
         <% @favorite_articles.each do |favorite_article| %>
@@ -54,7 +54,7 @@
       </ol>
   </div>
 
-  <div class="span4">
+  <div class="span6">
       <h3 class="sign_up2">Comments (<%= @comments.total_entries %>)</h3>
       <ol class="user_comments">
         <% @comments.each do |comment| %>
