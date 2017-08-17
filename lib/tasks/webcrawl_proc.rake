@@ -59,8 +59,8 @@ pcmag_page = Nokogiri::HTML(open("https://www.pcmag.com/"))
 pcmag_links = pcmag_page.css("div#news-stack a")
 
 #Social
-#buzz_page = Nokogiri::HTML(open("https://www.buzzfeed.com"))   
-#buzz_links = buzz_page.css("div.sidebar-content-js.card.xs-relative.xs-border-top-none.xs-mb2.xs-p2.clearfix")
+buzz_page = Nokogiri::HTML(open("https://www.buzzfeed.com"))   
+buzz_links = buzz_page.css("div.sidebar-content-js.card.xs-relative.xs-border-top-none.xs-mb2.xs-p2.clearfix")
 
 ew_page = Nokogiri::HTML(open("http://www.ew.com/"))   
 ew_links = ew_page.css("div #most-popular ol li.home-most-popular__list-item a.home-most-popular__item-link")
