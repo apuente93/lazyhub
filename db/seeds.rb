@@ -50,7 +50,7 @@ youtube_links = youtube_page.css("div.yt-lockup-dismissable")
 addicting_page = Nokogiri::HTML(open("http://www.addictinggames.com/hot-games/index.jsp"))   
 addicting_links = addicting_page.css("div.gameSlot")
 
-miniclip_page = Nokogiri::HTML(open("http://www.miniclip.com/games/genre-23/top-100/en/#t-n-H"))   
+miniclip_page = Nokogiri::HTML(open("https://www.miniclip.com/games/genre-23/top-100/en/#t-n-H"))   
 miniclip_links = miniclip_page.css("div#category-games-list a.game-icon")
 
 #Tech
